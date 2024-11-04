@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NgbNavChangeEvent, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -7,7 +7,7 @@ import { NgbNavChangeEvent, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [NgbNavModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
 
