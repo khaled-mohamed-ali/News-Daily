@@ -1,21 +1,17 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgbNavChangeEvent, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgbNavModule],
+  imports: [MdbCollapseModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+active:boolean = true;
 
-
-  onNavChange(changeEvent: NgbNavChangeEvent) {
-    if (changeEvent.nextId === 3) {
-      changeEvent.preventDefault();
-    }
-  }
+  
 
 }

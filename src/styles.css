@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+.button--primary {
+    background: #EA3323 ;
+    color: white
+}
+
+.primary--color {
+        color: #EA3323 ;
+}

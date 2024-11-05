@@ -1,8 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
-import { NgbConfig } from '@ng-bootstrap/ng-bootstrap';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -16,9 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
 
-  constructor(ngbConfig: NgbConfig) {
-
-    ngbConfig.animation = false;
+  constructor() {
   }
+ 
   title = 'news-Daily';
 }
