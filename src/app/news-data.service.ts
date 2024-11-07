@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { NewsData } from './interface/news-data';
 import { BrowserModule } from '@angular/platform-browser';
-import { map, pipe } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+import {of, pipe} from 'rxjs'
 
 
 @Injectable({
@@ -25,18 +26,17 @@ export class NewsDataService {
       this.httpClient.get<NewsData>( this.url + this.apiKey)
         .subscribe({
           next: (news: NewsData) => this.News.set(news), // Updates state with the fetched news
+          complete: ( )=> console.log(this.News())
         })
-    )
-  }
-
-  getTodayNews() {
-    return (
-      this.News()?.articles.map(ele => console.log(ele))
     )
   }
 
  
 
 
+}
+
+function data(value: [{ source: object; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; content: string; }] | undefined, index: number): unknown {
+  throw new Error('Function not implemented.');
 }
 
