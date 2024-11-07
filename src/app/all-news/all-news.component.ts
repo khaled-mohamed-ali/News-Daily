@@ -10,11 +10,13 @@ import { NewsData } from '../interface/news-data';
   styleUrl: './all-news.component.css'
 })
 export class AllNewsComponent {
-  private NewsData = inject(NewsDataService)
+  private NewsDataService = inject(NewsDataService)
   // newsData = signal<NewsData | undefined>(undefined) 
 
   ngOnInit() {
-    this.NewsData.getNews();
+    this.NewsDataService.getNews();
+
+    setTimeout(() => this.NewsDataService.getTodayNews(),6000)
   }
 
 }

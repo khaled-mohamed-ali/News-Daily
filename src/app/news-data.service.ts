@@ -25,18 +25,27 @@ export class NewsDataService {
     return (
       this.httpClient.get<NewsData>( this.url + this.apiKey)
         .subscribe({
-          next: (news: NewsData) => this.News.set(news), // Updates state with the fetched news
-          complete: ( )=> console.log(this.News())
+          next: (news: NewsData) => this.News.set(news)// Updates state with the fetched news
+          
         })
     )
   }
+
+  getTodayNews() {
+     return  of(this.News()?.articles).pipe(
+      map(articles => articles?.filter(item => item.publishedAt.includes('2024-11-07')) )
+     ).subscribe({
+      next: (x) =>  console.log(x)
+     })
+
+  }
+
 
  
 
 
 }
 
-function data(value: [{ source: object; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; content: string; }] | undefined, index: number): unknown {
-  throw new Error('Function not implemented.');
-}
+
+
 

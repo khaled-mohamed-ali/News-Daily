@@ -1,6 +1,4 @@
 export interface NewsData {
-    status: string,
-    totalResults: number,
     articles :[
         {
             source: object,
@@ -8,9 +6,8 @@ export interface NewsData {
             title: string,
             description: string,
             url: string,
-            urlToImage: string,
+            urlToImage: string | null,
             publishedAt: string,
             content: string
-        }
-    ]
+        }]
 }
