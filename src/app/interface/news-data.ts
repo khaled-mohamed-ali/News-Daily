@@ -1,6 +1,5 @@
 export interface NewsData {
-    articles :[
-        {
+    articles :{
             source: object,
             author: string,
             title: string,
@@ -9,5 +8,5 @@ export interface NewsData {
             urlToImage: string | null,
             publishedAt: string,
             content: string
-        }]
+        }[]
 }
