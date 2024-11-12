@@ -14,27 +14,24 @@ export class AllNewsComponent {
   private NewsDataService = inject(NewsDataService)
   News = signal<allNewsData | undefined>(undefined);
   TodayNews = signal<News[] | undefined>(undefined);
-  randomTodayNews: News | undefined  ;
+  randomTodayNews: News | undefined  ;  
 
 
 
   ngOnInit() {
     this.NewsDataService.getNews().subscribe({
       next: (news: allNewsData) => {
-        this.News.set(news)
-      },
-
-      complete: () =>  {
+        this.News.set(news);
         this.getTodayNews();
         this.getRandomDayNews()
+      }   
       }
-    })
-  }
+    )}
+  
 
   getTodayNews() {
     const todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-06'))));
     this.TodayNews.set(todayNews());
-    console.log(this.TodayNews())
   }
 
   getRandomDayNews() {
