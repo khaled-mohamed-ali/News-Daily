@@ -1,11 +1,12 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
 import { allNewsData, News } from '../interface/news-data';
+import { TodayNewsComponent } from "./today-news/today-news.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [],
+  imports: [TodayNewsComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
@@ -22,14 +23,12 @@ export class AllNewsComponent {
     const random = Math.floor(Math.random() * dayNews!?.length)
 
     return validArticles?.[random]
-
   })
    
   ngOnInit() {
     this.NewsDataService.getNews().subscribe({
       next: (news: allNewsData) => {
         this.News.set(news);
-
       }
     }
     )
