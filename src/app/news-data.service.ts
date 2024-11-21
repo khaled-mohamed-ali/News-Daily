@@ -22,8 +22,18 @@ export class NewsDataService {
 
   getNews() {
     return (
-      this.httpClient.get<allNewsData>( this.url + this.apiKey)
-    )
+      this.httpClient.get<allNewsData>(this.url + this.apiKey).pipe(
+        map((response: allNewsData) => {
+          // Filter articles with non-null urlToImage
+          return response.articles.filter(article => article.urlToImage != null);
+        })
+      ).subscribe({
+        next: (item)=> console.log(item,'klfkd'),
+        complete: ()=> console.log('item2')
+      }
+      )
+     )
+    
   }
 
 

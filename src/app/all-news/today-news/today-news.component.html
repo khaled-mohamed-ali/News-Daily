@@ -1,16 +1,14 @@
-<p class="fs-1 fw-bolder mb-5"><span class="primary--color">Today’s</span> News</p>
+<p class="fs-1 fw-bolder mb-5 text--black"><span class="primary--color">Today’s</span> News</p>
 <div class="row g-5">
     <app-mid-size-card class="col-9">
-        <div class="row d-flex justify-content-between">
-            <div class="col-5">
-                <h5 class="card-title text-warning">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+        <div class="row d-flex justify-content-between shadow-none">
+            <div class="col-4 ">
+                <h5 class="card-title text--black fw-bolder">{{randomArticle()?.title}}</h5>
+                <p class="card-text ">{{randomArticle()?.description}}</p>
             </div>
 
-            <div class="col-7">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="w-100 rounded-3"
+            <div class="col-8">
+                <img [src]="randomArticle()?.urlToImage" class="w-100 rounded-3"
                     alt="Fissure in Sandstone" />
             </div>
         </div>

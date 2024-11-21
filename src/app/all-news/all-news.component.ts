@@ -14,25 +14,38 @@ export class AllNewsComponent {
 
   private NewsDataService = inject(NewsDataService)
   News = signal<allNewsData | undefined>(undefined);
-  
   todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-07'))));
 
   RandomDayArticle = computed(() => {
     const dayNews = this.todayNews();
-    const validArticles = dayNews?.filter(article => article.author != null);
+    const validArticles = dayNews?.filter(article => 
+      article.urlToImage  &&
+      // article.urlToImage !== undefined &&
+      article.author != null &&
+      article.title != null 
+     );
+
     const random = Math.floor(Math.random() * dayNews!?.length)
 
     return validArticles?.[random]
   })
    
-  ngOnInit() {
-    this.NewsDataService.getNews().subscribe({
-      next: (news: allNewsData) => {
-        this.News.set(news);
-      }
-    }
-    )
-  }
+  // ngOnInit() {
+  //   this.NewsDataService.getNews().subscribe({
+  //     next: (news: allNewsData) => {
+  //       this.News.set(news);
+  //     }
+  //   }
+  //   )
+
+  //   setTimeout(() => {
+  //     console.log(this.RandomDayArticle()?.urlToImage , 'imgurl',)
+  //     ,
+  //       console.log(this.todayNews(),'todayNews')
+  //   }
+  //     ,1000)
+
+  // }
 
 
 }
