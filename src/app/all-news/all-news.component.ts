@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
-import { allNewsData, News } from '../interface/news-data';
+import { AllNewsData, News } from '../interface/news-data';
 import { TodayNewsComponent } from "./today-news/today-news.component";
 
 @Component({
@@ -13,7 +13,7 @@ import { TodayNewsComponent } from "./today-news/today-news.component";
 export class AllNewsComponent {
 
   private NewsDataService = inject(NewsDataService)
-  News = signal<allNewsData | undefined>(undefined);
+  News = signal<AllNewsData | undefined>(undefined);
   todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-07'))));
 
   RandomDayArticle = computed(() => {
@@ -30,22 +30,22 @@ export class AllNewsComponent {
     return validArticles?.[random]
   })
    
-  // ngOnInit() {
-  //   this.NewsDataService.getNews().subscribe({
-  //     next: (news: allNewsData) => {
-  //       this.News.set(news);
-  //     }
-  //   }
-  //   )
+  ngOnInit() {
+    this.NewsDataService.getNews().subscribe({
+      next: (news: AllNewsData) => {
+        this.News.set(news);
+      }
+    }
+    )
 
-  //   setTimeout(() => {
-  //     console.log(this.RandomDayArticle()?.urlToImage , 'imgurl',)
-  //     ,
-  //       console.log(this.todayNews(),'todayNews')
-  //   }
-  //     ,1000)
+    setTimeout(() => {
+      console.log(this.RandomDayArticle()?.urlToImage , 'imgurl',)
+      ,
+        console.log(this.todayNews(),'todayNews')
+    }
+      ,1000)
 
-  // }
+  }
 
 
 }
