@@ -18,14 +18,9 @@ export class AllNewsComponent {
 
   RandomDayArticle = computed(() => {
     const dayNews = this.todayNews();
-    const validArticles = dayNews?.filter(article => 
-      article.urlToImage  &&
-      // article.urlToImage !== undefined &&
-      article.author != null &&
-      article.title != null 
-     );
+    const validArticles = dayNews?.filter(article =>  article.urlToImage);
 
-    const random = Math.floor(Math.random() * dayNews!?.length)
+    const random = Math.floor(Math.random() * validArticles!?.length)
 
     return validArticles?.[random]
   })
@@ -37,14 +32,6 @@ export class AllNewsComponent {
       }
     }
     )
-
-    setTimeout(() => {
-      console.log(this.RandomDayArticle()?.urlToImage , 'imgurl',)
-      ,
-        console.log(this.todayNews(),'todayNews')
-    }
-      ,1000)
-
   }
 
 

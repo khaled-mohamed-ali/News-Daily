@@ -19,15 +19,11 @@ export class NewsDataService {
   apiKey: string = "apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
   todayNewsLength: number| undefined = 0;
   
+  // article => article.urlToImage != null)
 
   getNews() {
     return (
-      this.httpClient.get<AllNewsData>(this.url + this.apiKey).pipe(
-        map((response: AllNewsData) => {
-          // Filter articles with non-null urlToImage
-          return response.articles.filter(article => article.urlToImage != null);
-        })
-      )
+      this.httpClient.get<AllNewsData>(this.url + this.apiKey)
      )
     
   }
