@@ -13,3 +13,7 @@
 .text--black {
     color: #020202;
 }
+
+.smallFont {
+    font-size: 10px;
+}

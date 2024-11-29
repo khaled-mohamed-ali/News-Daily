@@ -7,7 +7,7 @@
         <div class="row d-flex justify-content-between">
             <div class="col-4 pt-4">
                 <h5 class="card-title text--black fw-bolder">{{randomArticle()?.title}}</h5>
-                <app-post-info [publishedAt]="randomArticle()?.publishedAt"/>
+                <app-post-info [userInfo]="{publishedAt:randomArticle()?.publishedAt, author: randomArticle()?.author}"/>
                 <p class="card-text pt-5">{{randomArticle()?.description}}</p>
             </div>
 
