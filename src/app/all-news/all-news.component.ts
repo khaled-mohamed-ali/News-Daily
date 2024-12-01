@@ -13,7 +13,12 @@ import { TodayNewsComponent } from "./today-news/today-news.component";
 export class AllNewsComponent {
 
   private NewsDataService = inject(NewsDataService)
-  News = signal<AllNewsData | undefined>(undefined);
+
+  defaultNews: AllNewsData = {
+    articles: []
+  };
+
+  News = signal<AllNewsData>(this.defaultNews);
   todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-07'))));
 
   RandomDayArticle = computed(() => {
@@ -25,8 +30,8 @@ export class AllNewsComponent {
   })
 
 
-  get4News(): any[] {
-    const items: any[] = [];
+  get4News(): News [] {
+    const items: News[]  = [] ;
       const fetchArticles = () => {
       if (items.length >= 4) {
         return;
