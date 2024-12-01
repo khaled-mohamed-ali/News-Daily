@@ -30,13 +30,17 @@ export class AllNewsComponent {
   })
 
 
-  get4News(): News [] {
-    const items: News[]  = [] ;
+  get4News(): News [] {   
+    const dayNews = this.todayNews();
+    const validArticles = dayNews?.filter(article =>  article.urlToImage);
+
+      const items: News[]  = [] ;
       const fetchArticles = () => {
+      const random = Math.floor(Math.random() * validArticles!?.length)
       if (items.length >= 4) {
         return;
       }
-      items.push(this.RandomDayArticle());
+      items.push(validArticles[random]);
         fetchArticles();
     };
       fetchArticles();
@@ -44,8 +48,6 @@ export class AllNewsComponent {
     return items;
   }
 
-
-   
   ngOnInit() {
     this.NewsDataService.getNews().subscribe({
       next: (news: AllNewsData) => {

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { News } from '../../interface/news-data';
 
 @Component({
   selector: 'app-small-news-card',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './small-news-card.component.css'
 })
 export class SmallNewsCardComponent {
+
+  news = input<News>()
 
 }

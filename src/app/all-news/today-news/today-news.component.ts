@@ -20,7 +20,6 @@ export class TodayNewsComponent {
 
 
 ngOnInit() {
-  setTimeout(() => console.log(this.sub4Articels),3000) 
 }
 
 

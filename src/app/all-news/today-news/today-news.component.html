@@ -20,7 +20,7 @@
     <div class="col-12">
         <div class="row">
         @for (item of sub4Articels; track item.source.id) {
-             <app-small-news-card  class="col-3" />
+             <app-small-news-card [news]= "item" class="col-3" />
         }
         </div>
     </div>
