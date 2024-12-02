@@ -21,25 +21,34 @@ export class AllNewsComponent {
   News = signal<AllNewsData>(this.defaultNews);
   todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-07'))));
 
+
+
   RandomDayArticle = computed(() => {
+
     const dayNews = this.todayNews();
     const validArticles = dayNews?.filter(article =>  article.urlToImage);
-    const random = Math.floor(Math.random() * validArticles!?.length)
+    const random = Math.floor(Math.random() * validArticles!?.length);
 
-    return validArticles?.[random]
+    return validArticles?.[random];
+
   })
 
+  rightSideArticle: News | undefined = undefined
 
   get4News(): News [] {   
     const dayNews = this.todayNews();
     const validArticles = dayNews?.filter(article =>  article.urlToImage);
 
-      const items: News[]  = [] ;
+      const items: News []  = [] ;
+      
       const fetchArticles = () => {
       const random = Math.floor(Math.random() * validArticles!?.length)
-      if (items.length >= 4) {
+
+      if (items.length >= 5) {
+        this.rightSideArticle =  items.pop();
         return;
       }
+
       items.push(validArticles[random]);
         fetchArticles();
     };
@@ -48,6 +57,8 @@ export class AllNewsComponent {
     return items;
   }
 
+
+
   ngOnInit() {
     this.NewsDataService.getNews().subscribe({
       next: (news: AllNewsData) => {
@@ -55,12 +66,16 @@ export class AllNewsComponent {
 
       },
 
-      complete: () => this.get4News()
-
+      complete: () => this.get4News(),
     }
     )
+    setTimeout(()=> console.log(this.rightSideArticle,'work') ,3000)
   }
 
 
+}
+
+function ngOnInit() {
+  throw new Error('Function not implemented.');
 }
 
