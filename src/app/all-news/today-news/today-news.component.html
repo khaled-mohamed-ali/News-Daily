@@ -16,7 +16,7 @@
             </div>
         </div>
     </app-mid-size-card>
-    <app-small-news-card class="col-3" />
+    <app-small-news-card [news]="rightArticle" class="col-3" />
     <div class="col-12">
         <div class="row">
         @for (item of sub4Articels; track item.source.id) {
