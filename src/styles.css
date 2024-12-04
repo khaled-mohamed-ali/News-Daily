@@ -12,8 +12,33 @@
 
 .text--black {
     color: #020202;
+          
 }
 
 .smallFont {
     font-size: 10px;
+}
+
+.text-twoLineClamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.5em;
+}
+
+.text-FiveLineClamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    line-height: 1.5em;
+}
+
+.smallCardImg {
+    max-height: 180px;
+}
+
+.text-midSize {
+    font-size: 12px;
 }
