@@ -5,4 +5,5 @@
         <h5 class="card-title fs-6 fw-bolder pt-2 text--black text-twoLineClamp">{{news()?.title}}</h5>
         <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-3">{{news()?.description}}</p>
     </div>
+    <app-post-info [userInfo]="{publishedAt:news()?.publishedAt, author: news()?.author}"/>
 </div>

@@ -27,7 +27,7 @@
     line-height: 1.5em;
 }
 
-.text-FiveLineClamp {
+.text-FiveLinesClamp {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
