@@ -1,9 +1,24 @@
-<div class="rounded-5">
+<!-- <div class="smallCard d-flex flex-column">
     <img [src]="news()?.urlToImage" class="card-img-top rounded-5 smallCardImg"
         alt="Fissure in Sandstone" />
-    <div class="card-body">
-        <h5 class="card-title fs-6 fw-bolder pt-2 text--black text-twoLineClamp">{{news()?.title}}</h5>
-        <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-3">{{news()?.description}}</p>
+    <div class="card-body d-flex row justify-content-between flex-grow-1">
+        <h5 class="card-title fs-6 fw-bolder pt-2 text--black text-twoLineClamp ">{{news()?.title}}</h5>
+        <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-3 ">{{news()?.description}}</p>
+        <app-post-info class="align-items-end flex-grow-1" [userInfo]="{publishedAt:news()?.publishedAt, author: news()?.author}"/>
     </div>
-    <app-post-info [userInfo]="{publishedAt:news()?.publishedAt, author: news()?.author}"/>
-</div>
+</div> -->
+
+<div class="smallCard d-flex flex-column">
+    <img [src]="news()?.urlToImage" class="card-img-top rounded-5 smallCardImg" alt="Fissure in Sandstone" />
+    
+    <div class="card-body d-flex flex-column justify-content-between flex-grow-1">
+      <h5 class="card-title fs-6 fw-bolder pt-2 text--black text-twoLineClamp">{{news()?.title}}</h5>
+      <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-3">{{news()?.description}}</p>
+      
+      <!-- Use flex-grow-1 on the content area to ensure it takes available space -->
+    </div>
+    
+    <!-- The app-post-info is now placed at the end of the container -->
+    <app-post-info class="align-items-end" [userInfo]="{publishedAt: news()?.publishedAt, author: news()?.author}"/>
+  </div>
+
