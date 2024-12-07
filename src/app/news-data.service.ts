@@ -15,7 +15,7 @@ export class NewsDataService {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  url = "https://newsapi.org/v2/everything?q=apple&from=2024-11-04&to=2024-11-08&sortBy=popularity&";
+  url = "https://newsapi.org/v2/everything?q=apple&from=2024-11-10&to=2024-11-15&sortBy=popularity&";
   apiKey: string = "apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
   todayNewsLength: number| undefined = 0;
   
@@ -31,8 +31,6 @@ export class NewsDataService {
 
  
 
-
- 
 
 
 }

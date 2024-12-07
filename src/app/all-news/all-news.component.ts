@@ -18,6 +18,7 @@ export class AllNewsComponent {
     this.NewsDataService.getNews().subscribe({
       next: (news: AllNewsData) => {
         this.News.set(news);
+        console.log(news,'news')
 
       },
 
@@ -33,7 +34,7 @@ export class AllNewsComponent {
 
 
   News = signal<AllNewsData>(this.defaultNews);
-  todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-07'))));
+  todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-15'))));
 
 
 
