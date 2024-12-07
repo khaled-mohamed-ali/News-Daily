@@ -1,7 +1,8 @@
-    <img [src]="news()?.urlToImage" class="card-img-top rounded-5 smallCardImg"
-        alt="Fissure in Sandstone" />
-    <div class="card-body">
+<div class="smallCard d-flex flex-column">
+    <img [src]="news()?.urlToImage" class="card-img-top rounded-5 smallCardImg" alt="Fissure in Sandstone" />
+    <div class="card-body d-flex flex-column justify-content-around ">
         <h5 class="card-title fs-6 fw-bolder pt-2 text--black text-twoLineClamp">{{news()?.title}}</h5>
-        <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-3">{{news()?.description}}</p>
+        <p class="card-text text-midSize fw-bolder text-twoLineClamp pt-2">{{news()?.description}}</p>
     </div>
-    <app-post-info class="" [userInfo]="{publishedAt:news()?.publishedAt, author: news()?.author}"/>
+    <app-post-info class="" [userInfo]="{publishedAt: news()?.publishedAt, author: news()?.author}" />
+</div>

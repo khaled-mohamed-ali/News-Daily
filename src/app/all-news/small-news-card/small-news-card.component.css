@@ -1,0 +1,13 @@
+.smallCard {
+    
+    min-height: 200px;
+}
+
+.smallCardImg {
+    max-height: 150px;
+}
+
+/* 
+.card-body {
+    height: 150px;
+} */

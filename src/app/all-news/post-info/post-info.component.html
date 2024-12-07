@@ -1,10 +1,10 @@
-<div class="row justify-content-between pt-4">
+<div class="row justify-content-between pt-1">
     <div class="col-6 align-items-center">
         <i class="bi bi-clock "></i>
         <span class="p-1 smallFont" >{{userInfo()?.publishedAt}}</span>
     </div>
     <div class="col-6  d-flex align-items-center ">
         <i class="bi bi-person fst-normal fw-bolder smallFont"> by</i>
-        <span class="p-1 text--black fw-bolder  smallFont text-truncate d-inline-block" style="width: 100px;" >{{userInfo()?.author}}</span>
+        <span class="p-1 text--black fw-bolder  smallFont text-truncate d-inline-block" style="width: 100px;" >{{userInfo()?.author?userInfo()?.author:'Unknown user'}}</span>
     </div>
 </div>

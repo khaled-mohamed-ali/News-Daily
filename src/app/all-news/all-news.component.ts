@@ -34,7 +34,7 @@ export class AllNewsComponent {
 
 
   News = signal<AllNewsData>(this.defaultNews);
-  todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-15'))));
+  todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-14'))));
 
 
 
