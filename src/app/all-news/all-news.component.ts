@@ -2,11 +2,12 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
 import { AllNewsData, News } from '../interface/news-data';
 import { TodayNewsComponent } from "./today-news/today-news.component";
+import { FullSizeCardComponent } from "./full-size-card/full-size-card.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [TodayNewsComponent],
+  imports: [TodayNewsComponent, FullSizeCardComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
