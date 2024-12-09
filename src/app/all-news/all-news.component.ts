@@ -19,8 +19,6 @@ export class AllNewsComponent {
     this.NewsDataService.getNews().subscribe({
       next: (news: AllNewsData) => {
         this.News.set(news);
-        console.log(news,'news')
-
       },
 
       complete: () => this.get4News(),
@@ -49,19 +47,21 @@ export class AllNewsComponent {
 
   })
 
-  rightSideArticle: News | undefined = undefined
+  rightSideArticle: News | undefined = undefined;
+  fullSizeCard : News | undefined = undefined;
 
   get4News(): News[] {
     const dayNews = this.todayNews();
     const validArticles = dayNews?.filter(article => article.urlToImage);
-    const random = Math.floor(Math.random() * (validArticles!?.length -5) )
+    const random = Math.floor(Math.random() * (validArticles!?.length -6) )
     const items: News[] = [];
 
-    for (let i = random; validArticles.length && i < random + 5; i++) {
+    for (let i = random; validArticles.length && i < random + 6; i++) {
       items.push(validArticles[i])
     }
 
     this.rightSideArticle = items.pop();
+    this.fullSizeCard = items.pop();
 
 
     //   const fetchArticles = () => {
@@ -79,7 +79,6 @@ export class AllNewsComponent {
 
     return items;
   }
-
 
 
 
