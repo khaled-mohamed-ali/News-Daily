@@ -10,10 +10,8 @@ import { News } from '../../interface/news-data';
 })
 export class FullSizeCardComponent {
 
-  fullSizeCardImg = input< News | undefined >(undefined);
+  fullSizeCardData = input< News | undefined >(undefined);
 
-  ngOnInit() {
-    setTimeout(()=> console.log(this.fullSizeCardImg()) ,3000)
-  }
+  
 
 }

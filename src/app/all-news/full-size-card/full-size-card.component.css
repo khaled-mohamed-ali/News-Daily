@@ -1,0 +1,10 @@
+.inner-text {
+    position: absolute;
+    bottom: 0;
+    right: 0
+}
+
+.imgContainer {
+    height: 600px;
+    width: 100%;
+}
