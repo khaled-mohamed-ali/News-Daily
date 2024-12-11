@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 import { News } from '../../interface/news-data';
 
 @Component({
@@ -6,7 +6,8 @@ import { News } from '../../interface/news-data';
   standalone: true,
   imports: [],
   templateUrl: './full-size-card.component.html',
-  styleUrl: './full-size-card.component.css'
+  styleUrl: './full-size-card.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class FullSizeCardComponent {
 

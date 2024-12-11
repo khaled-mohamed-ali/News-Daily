@@ -29,7 +29,7 @@ export class NewsDataService {
 
 
  
-
+  // https://newsapi.org/v2/top-headlines?category=general&apiKey=apiKey=d20e510c9ed54f6eaf96079fedec6bd2
 
 
 }
