@@ -18,7 +18,7 @@ export class NewsDataService {
   url = "https://newsapi.org/v2/top-headlines?country=us&";
   apiKey: string = "apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
   todayNewsLength: number| undefined = 0;
-  
+  value = 0
 
   getNews() {
     return (
