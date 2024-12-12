@@ -1,13 +1,14 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { NewsDataService } from '../news-data.service';
-import { AllNewsData, News } from '../interface/news-data';
-import { TodayNewsComponent } from "./today-news/today-news.component";
-import { FullSizeCardComponent } from "./full-size-card/full-size-card.component";
+import { NewsDataService } from '../../news-data.service';
+import { AllNewsData, News } from '../../interface/news-data';
+import { TodayNewsComponent } from "../today-news/today-news.component";
+import { FullSizeCardComponent } from "../full-size-card/full-size-card.component";
+import { EditorsPickComponent } from "../editors-pick/editors-pick.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [TodayNewsComponent, FullSizeCardComponent],
+  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
