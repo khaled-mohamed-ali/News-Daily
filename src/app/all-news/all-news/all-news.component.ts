@@ -64,20 +64,6 @@ export class AllNewsComponent {
     this.rightSideArticle = items.pop();
     this.fullSizeCard = items.pop();
 
-
-    //   const fetchArticles = () => {
-    //   const random = Math.floor(Math.random() * validArticles!?.length)
-
-    //   if (items.length >= 5) {
-    //     this.rightSideArticle =  items.pop();
-    //     return;
-    //   }
-
-    //   items.push(validArticles[random]);
-    //     fetchArticles();
-    // };
-    //   fetchArticles();
-
     return items;
   }
 
