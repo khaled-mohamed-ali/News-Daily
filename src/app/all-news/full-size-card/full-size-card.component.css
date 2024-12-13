@@ -1,14 +1,19 @@
 .inner-name {
 
   position: absolute;
-  top: 10%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 20px 0;
+  top: 15%;
   right: 15%;
   color: white; 
+  background: rgba(234, 51, 35, 0.7);
   text-align: left;
-  padding: 20px;
   font-size: 15px;
-  max-width: 20%; 
-  border-radius: 50%;
+  min-width: 10%;
+  height: 50px;
+  border-radius: 15px;
 }
 
 .imgContainer {

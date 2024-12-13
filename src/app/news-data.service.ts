@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { AllNewsData } from './interface/news-data';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,8 +21,11 @@ export class NewsDataService {
   value = 0
 
   getNews() {
+    const params = new HttpParams()
+    .set('page', '1')       // Specify the page number (as a string)
+    .set('pageSize', '10')
     return (
-      this.httpClient.get<AllNewsData>(this.url + this.apiKey)
+      this.httpClient.get<AllNewsData>(this.url + this.apiKey,{params})
      )
     
   }
