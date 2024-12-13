@@ -1,4 +1,4 @@
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, computed, input,ViewEncapsulation } from '@angular/core';
 import { News } from '../../interface/news-data';
 
 @Component({
@@ -12,7 +12,8 @@ import { News } from '../../interface/news-data';
 export class FullSizeCardComponent {
 
   fullSizeCardData = input< News | undefined >(undefined);
+  content = computed(() =>  this.fullSizeCardData()?.content)
 
-  
+ 
 
 }

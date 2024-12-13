@@ -23,8 +23,10 @@ export class AllNewsComponent {
       },
 
       complete: () => this.get4News(),
+        
     }
     )
+    setTimeout(() => console.log(this.get4News()) ,3000)
   }
 
   defaultNews: AllNewsData = {
@@ -34,7 +36,8 @@ export class AllNewsComponent {
 
 
   News = signal<AllNewsData>(this.defaultNews);
-  todayNews = computed(() => this.News()?.articles.filter((item => item.publishedAt.includes('2024-11-29'))));
+  todayNews = computed(() => this.News()?.articles);
+  // .filter((item => item.publishedAt.includes('2024-11-29'))));
 
 
 
