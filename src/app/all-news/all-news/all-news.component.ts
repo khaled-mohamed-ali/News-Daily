@@ -26,7 +26,6 @@ export class AllNewsComponent {
         
     }
     )
-    setTimeout(() => console.log(this.get4News()) ,3000)
   }
 
   defaultNews: AllNewsData = {

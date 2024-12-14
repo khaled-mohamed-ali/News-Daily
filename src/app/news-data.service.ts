@@ -23,16 +23,20 @@ export class NewsDataService {
   getNews() {
     const params = new HttpParams()
     .set('page', '1')       // Specify the page number (as a string)
-    .set('pageSize', '10')
+    .set('pageSize', '100')
     return (
       this.httpClient.get<AllNewsData>(this.url + this.apiKey,{params})
      )
     
   }
 
+  
+getCategroy() {
+  
+}
+
 
  
-  // https://newsapi.org/v2/top-headlines?category=general&apiKey=apiKey=d20e510c9ed54f6eaf96079fedec6bd2
 
 
 }
