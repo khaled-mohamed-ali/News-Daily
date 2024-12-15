@@ -12,6 +12,8 @@ import { EditorsPickComponent } from "../editors-pick/editors-pick.component";
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
+
+
 export class AllNewsComponent {
 
   private NewsDataService = inject(NewsDataService)
@@ -25,16 +27,20 @@ export class AllNewsComponent {
       complete: () => this.get4News(),
         
     }
-    )
+    ),
+    this.NewsDataService.getGeneralNews().subscribe({
+      next: (generalNews) => {
+        this.GeneralNews.set(generalNews)
+      },
+      complete: () => console.log(this.GeneralNews()[0])
+    })
   }
 
-  defaultNews: AllNewsData = {
-    articles: []
-  };
 
 
 
-  News = signal<AllNewsData>(this.defaultNews);
+  News = signal<AllNewsData>({ articles: []});
+  GeneralNews = signal<AllNewsData>({ articles: [] });
   todayNews = computed(() => this.News()?.articles);
   // .filter((item => item.publishedAt.includes('2024-11-29'))));
 
@@ -68,6 +74,8 @@ export class AllNewsComponent {
 
     return items;
   }
+
+
 
 
 

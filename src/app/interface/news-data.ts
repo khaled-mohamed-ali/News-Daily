@@ -1,4 +1,5 @@
 export interface AllNewsData {
+    [x: string]: any;
     articles: {
         source: { id: string, name: string },
         author: string,

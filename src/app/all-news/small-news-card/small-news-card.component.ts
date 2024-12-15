@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { News } from '../../interface/news-data';
+import { AllNewsData, News } from '../../interface/news-data';
 import { PostInfoComponent } from "../post-info/post-info.component";
 
 @Component({

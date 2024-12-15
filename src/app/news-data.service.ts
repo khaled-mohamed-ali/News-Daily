@@ -3,7 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { AllNewsData } from './interface/news-data';
 import { BrowserModule } from '@angular/platform-browser';
 import { map, filter } from 'rxjs/operators';
-import {of, pipe} from 'rxjs'
+import { of, pipe } from 'rxjs'
 
 
 @Injectable({
@@ -15,28 +15,32 @@ export class NewsDataService {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  url = "https://newsapi.org/v2/top-headlines?country=us&";
-  apiKey: string = "apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
-  todayNewsLength: number| undefined = 0;
-  value = 0
+  country = "";
+  apiKey: string = "";
 
   getNews() {
+    const newsUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
     const params = new HttpParams()
-    .set('page', '1')       // Specify the page number (as a string)
-    .set('pageSize', '100')
+      .set('page', '1')       // Specify the page number (as a string)
+      .set('pageSize', '100')
     return (
-      this.httpClient.get<AllNewsData>(this.url + this.apiKey,{params})
-     )
-    
+      this.httpClient.get<AllNewsData>(newsUrl, { params })
+    )
   }
 
-  
-getCategroy() {
-  
-}
+  getGeneralNews() {
+    const allSourceUrl = "https://newsapi.org/v2/top-headlines?country=de&category=sport&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
+    const params = new HttpParams()
+      .set('page', '1')       // Specify the page number (as a string)
+      .set('pageSize', '100')
+    return (
+      this.httpClient.get<AllNewsData>(allSourceUrl, { params})
+    )
+
+  }
 
 
- 
+
 
 
 }
