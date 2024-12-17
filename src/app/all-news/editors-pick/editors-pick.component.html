@@ -1,20 +1,29 @@
 <div class="row pt-5 mt-2">
     <div>
-        <p class="text-center fs-3 fw-bolder">
+        <p class="text-center fs-3 fw-bolder pb-4">
             <span class="primary--color ">Editor's</span> Pick
         </p>
     </div>
     <div class="col-3">
-        <div>
-            <!-- <app-small-news-card [news]="generalNews()"/> -->
-        </div>
-        <div></div>
+            <app-small-news-card [news]="generalNews()?.[0]"/>
+            <app-small-news-card [news]="generalNews()?.[1]"/>
     </div>
     <div class="col-6">
-
+        <app-mid-size-card>
+            <div class="row d-flex justify-content-between">
+                <div class="col-12">
+                    <img [src]="generalNews()?.[2]?.urlToImage" class="w-100 rounded-3" alt="Fissure in Sandstone" />
+                </div>
+                <div class="col-12 pt-4">
+                    <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{generalNews()?.[2]?.title}}</h5>
+                    <app-post-info [userInfo]="{publishedAt:generalNews()?.[2]?.publishedAt, author: generalNews()?.[2]?.author}"/>
+                    <p class="card-text fs-6 pt-5 text-FiveLinesClamp">{{generalNews()?.[2]?.description}}</p>
+                </div>
+            </div>
+        </app-mid-size-card>
     </div>
     <div class="col-3">
-        <div></div>
-        <div></div>
+        <app-small-news-card [news]="generalNews()?.[3]"/>
+        <app-small-news-card [news]="generalNews()?.[4]"/>
     </div>
 </div>

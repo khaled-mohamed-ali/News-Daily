@@ -30,9 +30,9 @@ export class AllNewsComponent {
     ),
     this.NewsDataService.getGeneralNews().subscribe({
       next: (generalNews) => {
-        this.GeneralNews.set(generalNews)
+        this.GeneralNews.set(generalNews.articles)
       },
-      complete: () => console.log(this.GeneralNews()[0])
+      complete: () => console.log(this.GeneralNews(),'gen') 
     })
   }
 
@@ -40,7 +40,7 @@ export class AllNewsComponent {
 
 
   News = signal<AllNewsData>({ articles: []});
-  GeneralNews = signal<AllNewsData>({ articles: [] });
+  GeneralNews = signal<News[] | undefined>(undefined);
   todayNews = computed(() => this.News()?.articles);
   // .filter((item => item.publishedAt.includes('2024-11-29'))));
 

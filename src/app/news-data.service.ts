@@ -29,7 +29,7 @@ export class NewsDataService {
   }
 
   getGeneralNews() {
-    const allSourceUrl = "https://newsapi.org/v2/top-headlines?country=de&category=sport&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
+    const allSourceUrl = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
     const params = new HttpParams()
       .set('page', '1')       // Specify the page number (as a string)
       .set('pageSize', '100')
