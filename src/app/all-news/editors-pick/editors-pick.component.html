@@ -30,4 +30,12 @@
         <app-small-news-card [news]="generalNews()?.[4]"/>
     </div>
     <app-full-size-card [fullSizeCardData]="generalNews()?.[5]"/>
+
+    <div class="col-12">
+        <div class="row pt-4">
+        @for (item of generalNews()?.slice(5,9); track item.source.id) {
+             <app-small-news-card [news]= "item" class="col-3" />
+        }
+        </div>
+
 </div>
