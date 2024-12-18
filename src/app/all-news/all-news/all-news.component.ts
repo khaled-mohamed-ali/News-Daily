@@ -28,7 +28,7 @@ export class AllNewsComponent {
         
     }
     ),
-    this.NewsDataService.getGeneralNews().subscribe({
+    this.NewsDataService.getAgenciesNews().subscribe({
       next: (generalNews) => {
         this.GeneralNews.set(generalNews.articles)
       },
