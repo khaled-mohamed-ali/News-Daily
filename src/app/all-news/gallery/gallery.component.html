@@ -1,21 +1,21 @@
-<div class="row py-5 my-5 ">
+<div class="row py-5 my-5 bg-black justify-content-between">
     <div class="col-9">
-        <app-mid-size-card class="col-9">
+        <app-mid-size-card>
             <div class="row d-flex justify-content-between">
                 <div class="col-12">
-                    <img [src]="generalNews()?.[0]?.urlToImage" class="w-100 rounded-3" alt="Fissure in Sandstone" />
+                    <img [src]="generalNews()?.[0]?.urlToImage" class="w-100 rounded-3 gMainImage" alt="Fissure in Sandstone" />
                 </div>
                 <div class="col-6 pt-5">
-                    <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{generalNews()?.[0]?.title}}</h5>
+                    <h5 class="card-title text-white fw-bolder text-twoLineClamp">{{generalNews()?.[0]?.title}}</h5>
                 </div>
                 <div class="col-6 pt-5">
-                    <p class="card-text fs-6 text-FiveLinesClamp">{{generalNews()?.[0]?.description}}</p>
+                    <p class="card-text text-bolder text-gray fs-6 text-FiveLinesClamp">{{generalNews()?.[0]?.description}}</p>
                 </div>
             </div>
         </app-mid-size-card>
     </div>
-    <div class="col-3">
+    <div class="col-3 text-white">
         <app-small-news-card [news]="generalNews()?.[1]" />
-        <app-small-news-card [news]="generalNews()?.[2]" />
+        <app-small-news-card [news]="generalNews()?.[2]"/>
     </div>
 </div>

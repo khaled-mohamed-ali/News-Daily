@@ -2,3 +2,19 @@
     background: black;
     
 }
+
+.gMainImage {
+    max-height: 500px;
+}
+
+:host {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:host ::ng-deep .gallery {
+    width: 100%;
+    max-width: 100%;
+}

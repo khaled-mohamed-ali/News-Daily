@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 import { News } from '../../interface/news-data';
 import { MidSizeCardComponent } from "../mid-size-card-img/mid-size-card.component";
 import { SmallNewsCardComponent } from "../small-news-card/small-news-card.component";
@@ -8,7 +8,8 @@ import { SmallNewsCardComponent } from "../small-news-card/small-news-card.compo
   standalone: true,
   imports: [MidSizeCardComponent, SmallNewsCardComponent],
   templateUrl: './gallery.component.html',
-  styleUrl: './gallery.component.css'
+  styleUrl: './gallery.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class GALLERYComponent {
 
