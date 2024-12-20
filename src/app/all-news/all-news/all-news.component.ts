@@ -4,11 +4,12 @@ import { AllNewsData, News } from '../../interface/news-data';
 import { TodayNewsComponent } from "../today-news/today-news.component";
 import { FullSizeCardComponent } from "../full-size-card/full-size-card.component";
 import { EditorsPickComponent } from "../editors-pick/editors-pick.component";
+import { GALLERYComponent } from "../gallery/gallery.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent],
+  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent, GALLERYComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
