@@ -1,7 +1,10 @@
-<div class="container-fluid mt-5">
-    <app-today-news [randomArticle]="RandomDayArticle()" [sub4Articels]="get4News()" [rightArticle]="rightSideArticle" >
-        <app-full-size-card [fullSizeCardData]='fullSizeCard'/>
-    </app-today-news>
-    <app-editors-pick [generalNews]="GeneralNews()"/> 
-    <app-gallery class="gallery" [generalNews]="GeneralNews()"/>   
+<div class="mt-5">
+    <div class="Container">
+        <app-today-news [randomArticle]="RandomDayArticle()" [sub4Articels]="get4News()"
+            [rightArticle]="rightSideArticle">
+            <app-full-size-card [fullSizeCardData]='fullSizeCard' />
+        </app-today-news>
+        <app-editors-pick [generalNews]="GeneralNews()" />
+    </div>
+    <app-gallery class="gallery" [generalNews]="GeneralNews()" />
 </div>
