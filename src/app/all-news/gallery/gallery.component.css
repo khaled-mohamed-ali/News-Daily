@@ -18,3 +18,25 @@
     width: 100%;
     max-width: 100%;
 }
+
+h2 {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height:30px;
+    justify-content: center;
+}
+
+.quote-left {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+
+}
+
+.quote-right {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+}
+
