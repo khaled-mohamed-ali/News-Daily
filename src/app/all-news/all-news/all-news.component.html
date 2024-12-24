@@ -8,20 +8,30 @@
     </div>
     <app-gallery class="gallery" [generalNews]="GeneralNews()" />
     <div class="Container">
-        <app-story>
+        <app-story class="py-5 my-5">
             <app-mid-size-card class="col-12">
                 <div class="row d-flex justify-content-around">
                     <div class="col-4 pt-4">
-                        <h2 class="fw-bolder w-100"><span class="primary--color ">STORY:</span> {{rightSideArticle?.source?.name}}</h2>
+                        <h3 class="fw-bolder w-100"><span class="primary--color ">STORY:</span>
+                            {{rightSideArticle?.source?.name}}</h3>
                         <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{rightSideArticle?.title}}</h5>
-                        <app-post-info [userInfo]="{publishedAt:rightSideArticle?.publishedAt, author: rightSideArticle?.author}"/>
+                        <app-post-info
+                            [userInfo]="{publishedAt:rightSideArticle?.publishedAt, author: rightSideArticle?.author}" />
                         <p class="card-text fs-6 pt-5 text-FiveLinesClamp">{{rightSideArticle?.description}}</p>
                     </div>
-                    <div class="col-6"> 
-                        <img [src]="rightSideArticle?.urlToImage" class="w-100 rounded-3 midSizeImage" alt="Fissure in Sandstone" />
+                    <div class="col-6">
+                        <img [src]="rightSideArticle?.urlToImage" class="w-100 rounded-3 midSizeImage"
+                            alt="Fissure in Sandstone" />
                     </div>
                 </div>
             </app-mid-size-card>
+            <div class="row">
+                @for (item of GeneralNews()?.slice(1,10); track $index) {
+                <div class="col-4">
+                    <app-micro-card [item]="item" />
+                </div>
+                }
+            </div>
         </app-story>
     </div>
 </div>

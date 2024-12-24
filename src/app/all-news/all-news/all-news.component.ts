@@ -8,11 +8,12 @@ import { GALLERYComponent } from "../gallery/gallery.component";
 import { StoryComponent } from "../../story/story.component";
 import { MidSizeCardComponent } from "../mid-size-card-img/mid-size-card.component";
 import { PostInfoComponent } from "../post-info/post-info.component";
+import { MicroCardComponent } from "../../micro-card/micro-card.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent, GALLERYComponent, StoryComponent, MidSizeCardComponent, PostInfoComponent],
+  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent, GALLERYComponent, StoryComponent, MidSizeCardComponent, PostInfoComponent, MicroCardComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
