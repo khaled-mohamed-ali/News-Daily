@@ -16,7 +16,6 @@ export class EditorsPickComponent {
 
   generalNews = input<News[] | undefined>()
   ngOnInit() {
-    setTimeout(() => console.log(this.generalNews()?.[0]), 2000)
   }
 
 }

@@ -5,11 +5,14 @@ import { TodayNewsComponent } from "../today-news/today-news.component";
 import { FullSizeCardComponent } from "../full-size-card/full-size-card.component";
 import { EditorsPickComponent } from "../editors-pick/editors-pick.component";
 import { GALLERYComponent } from "../gallery/gallery.component";
+import { StoryComponent } from "../../story/story.component";
+import { MidSizeCardComponent } from "../mid-size-card-img/mid-size-card.component";
+import { PostInfoComponent } from "../post-info/post-info.component";
 
 @Component({
   selector: 'app-all-news',
   standalone: true,
-  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent, GALLERYComponent],
+  imports: [TodayNewsComponent, FullSizeCardComponent, EditorsPickComponent, GALLERYComponent, StoryComponent, MidSizeCardComponent, PostInfoComponent],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
