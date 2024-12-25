@@ -25,8 +25,8 @@
                     </div>
                 </div>
             </app-mid-size-card>
-            <div class="row">
-                @for (item of GeneralNews()?.slice(1,10); track $index) {
+            <div class="row gy-5 my-5 ">
+                @for (item of GeneralNews()?.slice(1,7); track $index) {
                 <div class="col-4">
                     <app-micro-card [item]="item" />
                 </div>

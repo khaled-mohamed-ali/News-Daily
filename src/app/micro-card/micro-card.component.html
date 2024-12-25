@@ -2,5 +2,8 @@
     <div class="col-3 ">
         <img class="rounded-3" [src]="item()?.urlToImage" alt="">
     </div>
-    <div class="col-9"></div>
+    <div class="col-9 align-self-center">
+        <p class="text-midSize fw-bolder mb-0 text--black">{{item()?.title}}</p>
+        <app-post-info [userInfo]="{author: item()?.author, publishedAt: item()?.publishedAt}"/>
+    </div>
 </div>
