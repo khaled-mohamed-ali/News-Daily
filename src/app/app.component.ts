@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { AllNewsComponent } from "./all-news/all-news/all-news.component";
 import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';  // Import provideHttpClient
+import { provideHttpClient } from '@angular/common/http';
+import { FooterComponent } from "./footer/footer.component";  // Import provideHttpClient
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, AllNewsComponent],
+  imports: [RouterOutlet, NavbarComponent, AllNewsComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   encapsulation: ViewEncapsulation.None
