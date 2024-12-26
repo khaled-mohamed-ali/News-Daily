@@ -1,1 +1,8 @@
 <ng-content/>
+<div class="row py-5 my-5">
+    @for (item of News()?.slice(0,4); track $index) {
+        <app-small-news-card [news]= "item" class="col-3" />
+    }
+</div>
+
+

@@ -8,7 +8,7 @@
     </div>
     <app-gallery class="gallery" [generalNews]="GeneralNews()" />
     <div class="Container">
-        <app-story class="py-5 my-5">
+        <app-story class="py-5 my-5" [News]="GeneralNews()">
             <app-mid-size-card class="col-12">
                 <div class="row d-flex justify-content-around">
                     <div class="col-4 pt-4">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </app-mid-size-card>
-            <div class="row gy-5 my-5 ">
+            <div class="row gy-5 my-5">
                 @for (item of GeneralNews()?.slice(1,7); track $index) {
                 <div class="col-4">
                     <app-micro-card [item]="item" />
