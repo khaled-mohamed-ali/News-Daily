@@ -3,6 +3,6 @@ import { NavigateComponent } from './navigate/navigate.component';
 
 
 export const routes: Routes = [
-    { path: '/Navigate', component: NavigateComponent },
+    { path: 'Navigate', component: NavigateComponent },
 
 ];
