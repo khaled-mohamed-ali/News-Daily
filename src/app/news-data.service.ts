@@ -43,6 +43,16 @@ export class NewsDataService {
 
   }
 
+  getNewsByCatigory (category: string) {
+    let ByCatigory = 'https://newsapi.org/v2/top-headlines/sources?category='+ category +'&apiKey=d20e510c9ed54f6eaf96079fedec6bd2'
+    const params = new HttpParams()
+      .set('page', '1')       // Specify the page number (as a string)
+      .set('pageSize', '100')
+    return (
+      this.httpClient.get<AllNewsData>(ByCatigory, { params})
+    )
+  }
+
 
 
 
