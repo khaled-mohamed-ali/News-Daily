@@ -1,1 +1,5 @@
-<p class="pb-2">navigatdsdse works!</p>
+@for (item of catigoryNews()?.articles; track $index) {
+    <div>
+        {{item}}
+    </div>
+}
