@@ -1,5 +1,9 @@
-@for (item of catigoryNews()?.articles; track $index) {
-    <div>
-        {{item}}
+<div class="Container">
+    <div class="row justify-content-between">
+        @for (item of categoryNews()?.['sources']; track $index) {
+        <div class="col-6 gap-3">
+            {{item.description}}
+        </div>
+        }
     </div>
-}
+</div>
