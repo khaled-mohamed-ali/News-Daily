@@ -11,6 +11,11 @@ import { of, pipe } from 'rxjs'
 })
 
 export class NewsDataService {
+  static
+    // const newsUrl = "";
+    getNewsByCatigory(arg: any) {
+      throw new Error('Method not implemented.');
+  }
 
   constructor() { }
 

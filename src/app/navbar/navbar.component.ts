@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { NewsDataService } from '../news-data.service';
 
 
 
@@ -12,8 +13,12 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-active:boolean = true;
+   NewsDataService = inject(NewsDataService)
 
+  set path(ar: string) {
+     this.NewsDataService.getNewsByCatigory(ar);
+     console.log(ar);
+  }
   
 
 }

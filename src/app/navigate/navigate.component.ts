@@ -14,12 +14,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 
 export class NavigateComponent {
-[x: string]: any;
   private NewsDataService = inject(NewsDataService)
 
   category: string = 'business';
   // catigoryNews = toSignal(this.NewsDataService.getNewsByCatigory(this.category), {<initialValue: 'string'});
-categoryNews = toSignal(this.NewsDataService.getNewsByCatigory(this.category));
+  categoryNews = toSignal(this.NewsDataService.getNewsByCatigory(this.category));
 
 
   ngOnInit() {
