@@ -5,3 +5,8 @@
 .main-Nav:hover {
     cursor: pointer;
 }
+
+.custom-nav {
+    z-index: 999;
+    min-height: 80px;
+}
