@@ -14,7 +14,7 @@ import { NewsDataService } from '../news-data.service';
 })
 export class NavbarComponent {
   private NewsDataService = inject(NewsDataService);
-    @Input() navSelection!: string;
+  @Input() navSelection!: string;
   
   
   changeNave() {

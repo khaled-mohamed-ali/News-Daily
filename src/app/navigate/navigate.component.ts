@@ -15,7 +15,7 @@ import { AllNewsData } from '../interface/news-data';
 export class NavigateComponent {
   private NewsDataService = inject(NewsDataService)
 
-  @Input() navSelection!: string;
+  @Input({ required: true }) navSelection!: string;
   categoryNews =  signal<AllNewsData |undefined>(undefined);
 
 
