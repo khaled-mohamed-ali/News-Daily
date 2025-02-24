@@ -37,7 +37,6 @@ export class AllNewsComponent {
       next: (generalNews) => {
         this.GeneralNews.set(generalNews.articles)
       },
-      complete: () => console.log(this.GeneralNews(),'gen') 
     })
   }
 

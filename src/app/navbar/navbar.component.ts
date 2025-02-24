@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
+import { Component, inject, Input, signal, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { NewsDataService } from '../news-data.service';
@@ -13,12 +13,14 @@ import { NewsDataService } from '../news-data.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-   NewsDataService = inject(NewsDataService)
-
-  set path(ar: string) {
-     this.NewsDataService.getNewsByCatigory(ar);
-     console.log(ar);
-  }
+  private NewsDataService = inject(NewsDataService);
+    @Input() navSelection!: string;
   
+  
+  changeNave() {
+    return this.NewsDataService.getNewsByCatigory(this.navSelection);
+  
+  }
+
 
 }

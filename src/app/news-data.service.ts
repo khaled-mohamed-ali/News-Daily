@@ -11,11 +11,7 @@ import { of, pipe } from 'rxjs'
 })
 
 export class NewsDataService {
-  static
-    // const newsUrl = "";
-    getNewsByCatigory(arg: any) {
-      throw new Error('Method not implemented.');
-  }
+ 
 
   constructor() { }
 
@@ -49,7 +45,7 @@ export class NewsDataService {
   }
 
   getNewsByCatigory (category: string) {
-    let ByCatigory = 'https://newsapi.org/v2/top-headlines/sources?category='+ category +'&apiKey=d20e510c9ed54f6eaf96079fedec6bd2'
+    let ByCatigory = 'https://newsapi.org/v2/top-headlines/sources?category=' + category +'&apiKey=d20e510c9ed54f6eaf96079fedec6bd2';
     const params = new HttpParams()
       .set('page', '1')       // Specify the page number (as a string)
       .set('pageSize', '100')
@@ -57,9 +53,6 @@ export class NewsDataService {
       this.httpClient.get<AllNewsData>(ByCatigory, { params})
     )
   }
-
-
-
 
 
 }
