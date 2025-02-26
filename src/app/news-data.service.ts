@@ -1,9 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { AllNewsData } from './interface/news-data';
-import { BrowserModule } from '@angular/platform-browser';
-import { map, filter } from 'rxjs/operators';
-import { of, pipe } from 'rxjs'
+
 
 
 @Injectable({
@@ -33,7 +31,6 @@ export class NewsDataService {
   getAgenciesNews () {
     const newsAgencyes = ["al-jazeera-english","ars-technica","associated-press","axios","business-insider","bloomberg","breitbart-news"]
     const randomAgency = Math.floor(Math.random()* newsAgencyes.length - 1)
-    // const allSourceUrl = '';
     const allSourceUrl = "https://newsapi.org/v2/top-headlines?sources="+ newsAgencyes[randomAgency]+ "&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";
     const params = new HttpParams()
       .set('page', '1')       // Specify the page number (as a string)
@@ -44,11 +41,11 @@ export class NewsDataService {
 
   }
 
-  getNewsByCatigory (category: string) {
-    let ByCatigory = 'https://newsapi.org/v2/top-headlines/sources?category=' + category +'&apiKey=d20e510c9ed54f6eaf96079fedec6bd2';
+  getNewsByCatigory ( category: string) {
+    let ByCatigory = 'https://newsapi.org/v2/everything?q=' + category +'&apiKey=d20e510c9ed54f6eaf96079fedec6bd2';
     const params = new HttpParams()
       .set('page', '1')       // Specify the page number (as a string)
-      .set('pageSize', '100')
+      .set('pageSize', '20')
     return (
       this.httpClient.get<AllNewsData>(ByCatigory, { params})
     )
