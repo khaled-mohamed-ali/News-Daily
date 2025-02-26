@@ -4,41 +4,42 @@
             aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse main-Nav" id="navbarSupportedContent" mdbCollapse
+        <div class="row collapse navbar-collapse main-Nav" id="navbarSupportedContent" mdbCollapse
             #basicNavbar="mdbCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="home" routerLinkActive="selected">GENERAL NEWS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="business" routerLinkActive="selected"
-                        (click)="changeNave()">BUSSINESS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="sports" routerLinkActive="selected" (click)="changeNave()">SPORT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="health" routerLinkActive="selected"
-                        (click)="changeNave()">HEALTH</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="technology" routerLinkActive="selected"
-                        (click)="changeNave()">TECHNOLOGY</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="entertainment" routerLinkActive="selected"
-                        (click)="changeNave()">ENTERTAIMENT</a>
-                </li>
-            </ul>
-            <form class="d-flex justify-content-end align-item-center input-group w-50">
-                <div class=" ps-5 w-25 text-end">
-                    <i class="bi bi-search fs-4 fw-bolder primary--color"></i>
-                </div>
-                <h2 class="fw-bolder mb-0 text--black w-50 text-end">
+            <div class="d-flex col-4 justify-content-between    ">
+                <h2 class="fw-bolder mb-0 text--black w-75 text-start" routerLink="home">
                     <span class="primary--color">Today’s</span>
                     News
                 </h2>
-            </form>
+                <div class=" ps-5 w-25 text-end">
+                    <i class="bi bi-search fs-4 fw-bolder primary--color"></i>
+                </div>
+            </div>
+            <ul class="col-8 navbar-nav  mb-2 mb-lg-0 fw-bold justify-content-end">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="home" routerLinkActive="selected">GENERAL NEWS</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="business" routerLinkActive="selected"
+                        >BUSSINESS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="sports" routerLinkActive="selected" >SPORT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="health" routerLinkActive="selected"
+                    >HEALTH</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="technology" routerLinkActive="selected"
+                        >TECHNOLOGY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="entertainment" routerLinkActive="selected"
+                        >ENTERTAIMENT</a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </nav>
