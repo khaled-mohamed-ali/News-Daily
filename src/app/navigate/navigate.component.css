@@ -1,3 +1,7 @@
 .navigation { 
     margin-top: 150px;
 }
+
+.navImg {
+    max-height: 75%;
+}

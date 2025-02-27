@@ -7,7 +7,7 @@
             <p>{{item.description}}</p>      
         </div> -->
 
-        <app-mid-size-card class="col-9 mt-5">
+        <app-mid-size-card class="col-11 mt-5">
             <div class="row d-flex justify-content-between">
                 <div class="col-4 pt-4">
                     <h5 class="card-title text--black fw-bolder">{{item?.title}}</h5>
@@ -16,9 +16,10 @@
                 </div>
         
                 <div class="col-8">
-                    <img [src]="item?.urlToImage" class="w-100 rounded-3" alt="Fissure in Sandstone" />
+                    <img [src]="item?.urlToImage" class="w-100 rounded-3 navImg" alt="Fissure in Sandstone" />
                 </div>
             </div>
+            
         </app-mid-size-card>
 
         }
