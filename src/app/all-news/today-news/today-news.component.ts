@@ -17,15 +17,16 @@ import { FullSizeCardComponent } from "../full-size-card/full-size-card.componen
 export class TodayNewsComponent {
 
   randomArticle = input<News>();
-  @Input()  sub4Articels : News[] = [];
-  @Input()  rightArticle : News | undefined = undefined
+  @Input() sub4Articels: News[] = [];
+  @Input() rightArticle: News | undefined = undefined
 
 
-ngOnInit() {
-}
+  ngOnInit() {
+    console.log('dk')
+  }
 
 
- 
+
 
 
 }

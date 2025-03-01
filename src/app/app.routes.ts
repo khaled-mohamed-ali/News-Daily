@@ -14,7 +14,16 @@ export const routes: Routes = [
         component: NavigateComponent,
         resolve: {
             data: newsResolver
-        }
+        },
+        children: [
+            {
+                path: ':pageNumber',
+                component: NavigateComponent,
+                resolve: {
+                    data: newsResolver
+                },
+            }
+        ]
     },
 
 

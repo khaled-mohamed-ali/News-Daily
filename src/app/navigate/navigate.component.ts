@@ -4,12 +4,13 @@ import { AllNewsData } from '../interface/news-data';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { MidSizeCardComponent } from "../all-news/mid-size-card-img/mid-size-card.component";
 import { PostInfoComponent } from "../all-news/post-info/post-info.component";
+import { PaginationComponent } from "../pagination/pagination.component";
 
 
 @Component({
   selector: 'app-navigate',
   standalone: true,
-  imports: [MidSizeCardComponent, PostInfoComponent],
+  imports: [MidSizeCardComponent, PostInfoComponent, PaginationComponent],
   templateUrl: './navigate.component.html',
   styleUrl: './navigate.component.css'
 })
@@ -17,6 +18,7 @@ import { PostInfoComponent } from "../all-news/post-info/post-info.component";
 export class NavigateComponent {
 
   @Input({ required: true }) navSelection!: string;
+  @Input() pageNumber: number = 1;
   @Input() x = 'test'
 
 
@@ -26,14 +28,32 @@ export class NavigateComponent {
   categoryNews = signal<AllNewsData | undefined>(undefined);
 
 
+  ngOnChanges(changes: SimpleChanges) {
+    // console.log('work')
+    // if (changes) {
+    console.log('work')
+    this.activatedRoute.data.subscribe({
+      next: (news) =>
+        this.categoryNews.set(news['data'])
+      // })
+    })
+  }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe({
       next: (news) => 
         this.categoryNews.set(news['data'])     
     })
+    // setTimeout(()=> {
+    //   console.log('start')
+    //   this.activatedRoute.data.subscribe({
+    //     next: (news) =>
+    //       this.categoryNews.set(news['data'])
+    //   })    },5000)
 
   }
+
+
 
 
 
@@ -48,8 +68,10 @@ export class NavigateComponent {
 export const newsResolver = (  route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) => {
   const newsDataService = inject(NewsDataService);
   const category = route.paramMap.get('navSelection')!;
+  const pageNumber: any = route.paramMap.get('pageNumber')
+  console.log(pageNumber,'pageNum')
   
-  return newsDataService.getNewsByCatigory(category)
+  return newsDataService.getNewsByCatigory(category, pageNumber)
 }
 
 

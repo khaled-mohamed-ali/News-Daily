@@ -15,12 +15,14 @@ import { NewsDataService } from '../news-data.service';
 export class NavbarComponent {
   private NewsDataService = inject(NewsDataService);
   @Input() navSelection!: string;
+  @Input() pageNumber: number = 1;
+
   
   
-  changeNave() {
-    return this.NewsDataService.getNewsByCatigory(this.navSelection);
+  // changeNave() {
+  //   return this.NewsDataService.getNewsByCatigory(this.navSelection);
   
-  }
+  // }
 
 
 }
