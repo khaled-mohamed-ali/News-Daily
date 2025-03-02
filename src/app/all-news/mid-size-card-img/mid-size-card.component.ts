@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'app-mid-size-card',

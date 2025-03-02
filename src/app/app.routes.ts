@@ -9,6 +9,8 @@ import { AllNewsComponent } from './all-news/all-news/all-news.component';
 
 export const routes: Routes = [
     { path: 'home', component: AllNewsComponent },
+    
+    
     {
         path: ':navSelection',
         component: NavigateComponent,

@@ -1,4 +1,4 @@
-import { Component, inject, Input, Signal, signal, SimpleChanges } from '@angular/core';
+import { Component, inject, input, Input, Signal, signal, SimpleChanges } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
 import { AllNewsData } from '../interface/news-data';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -17,10 +17,9 @@ import { PaginationComponent } from "../pagination/pagination.component";
 
 export class NavigateComponent {
 
-  @Input({ required: true }) navSelection!: string;
-  @Input() pageNumber: number = 1;
-  @Input() x = 'test'
-
+  // @Input({ required: true }) navSelection!: string;
+  // @input({ required: true }) pageNumber: number = 1;
+  pageNumber = input()
 
   private newsDataService = inject(NewsDataService);
   private route = inject(ActivatedRoute);
@@ -28,28 +27,26 @@ export class NavigateComponent {
   categoryNews = signal<AllNewsData | undefined>(undefined);
 
 
-  ngOnChanges(changes: SimpleChanges) {
-    // console.log('work')
+  ngOnChanges() {
+    console.log('changed');
+    console.log(this.pageNumber())
+
     // if (changes) {
-    console.log('work')
-    this.activatedRoute.data.subscribe({
-      next: (news) =>
-        this.categoryNews.set(news['data'])
-      // })
-    })
+  
+    // this.activatedRoute.data.subscribe({
+    //   next: (news) =>
+    //     this.categoryNews.set(news['data'])
+    //   // })
+    // })
   }
 
   ngOnInit() {
+   
+  
     this.activatedRoute.data.subscribe({
       next: (news) => 
         this.categoryNews.set(news['data'])     
     })
-    // setTimeout(()=> {
-    //   console.log('start')
-    //   this.activatedRoute.data.subscribe({
-    //     next: (news) =>
-    //       this.categoryNews.set(news['data'])
-    //   })    },5000)
 
   }
 
@@ -67,11 +64,9 @@ export class NavigateComponent {
 
 export const newsResolver = (  route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) => {
   const newsDataService = inject(NewsDataService);
-  const category = route.paramMap.get('navSelection')!;
-  const pageNumber: any = route.paramMap.get('pageNumber')
-  console.log(pageNumber,'pageNum')
-  
+  const activatedRoute = inject(ActivatedRoute)
+  const category = activatedRoute.snapshot.children[0]?.params['navSelection'];
+  const pageNumber: any = route.paramMap.get('pageNumber');
+  // console.log(activatedRoute.snapshot.children[0]?.params['navSelection'])
   return newsDataService.getNewsByCatigory(category, pageNumber)
 }
-
-

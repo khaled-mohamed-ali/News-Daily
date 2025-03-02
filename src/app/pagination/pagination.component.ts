@@ -20,9 +20,6 @@ export class PaginationComponent {
   
   nextPage() {
     this.pageNumber ++ ;
-    return this.NewsDataService.getNewsByCatigory(this.navSelection, this.pageNumber)
-
-
   }
 
 

@@ -22,7 +22,6 @@ export class TodayNewsComponent {
 
 
   ngOnInit() {
-    console.log('dk')
   }
 
 
