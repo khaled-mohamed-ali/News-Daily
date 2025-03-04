@@ -27,22 +27,9 @@ export class NavigateComponent {
   categoryNews = signal<AllNewsData | undefined>(undefined);
 
 
-  ngOnChanges() {
-    console.log('changed');
-    console.log(this.navSelection)
 
-    // if (changes) {
-  
-    // this.activatedRoute.data.subscribe({
-    //   next: (news) =>
-    //     this.categoryNews.set(news['data'])
-    //   // })
-    // })
-  }
 
   ngOnInit() {
-   
-  
     this.activatedRoute.data.subscribe({
       next: (news) => 
         this.categoryNews.set(news['data'])     
@@ -67,6 +54,5 @@ export const newsResolver = (  route: ActivatedRouteSnapshot, state: RouterState
   const activatedRoute = inject(ActivatedRoute)
   const category = activatedRoute.snapshot.children[0]?.params['navSelection'];
   const pageNumber: any = route.paramMap.get('pageNumber');
-  // console.log(activatedRoute.snapshot.children[0]?.params['navSelection'])
   return newsDataService.getNewsByCatigory(category, pageNumber)
 }

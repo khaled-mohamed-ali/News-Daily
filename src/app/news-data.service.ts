@@ -19,9 +19,6 @@ export class NewsDataService {
   currentPage: string | null = '';
   @Input() pageNumber:number = 1; 
 
-  ngOnChange() {
-    console.log('work')
-  }
 
   getNews() {
     const newsUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d20e510c9ed54f6eaf96079fedec6bd2";

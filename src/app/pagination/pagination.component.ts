@@ -12,20 +12,21 @@ import { NewsDataService } from '../news-data.service';
 export class PaginationComponent {
   NewsDataService = inject(NewsDataService);
   @Input() pageNumber: number = 1;
-
-  currentPage = Number(this.NewsDataService.currentPage);
   @Input() navSelection!: string;
 
-  
-  
+
+
   nextPage() {
-    this.pageNumber ++ ;
+    this.pageNumber++;
+  }
+
+  prevPage() {
+    if (this.pageNumber >= 2) {
+      this.pageNumber--;
+    }
   }
 
 
-  ngOnInit() {
-    console.log(this.navSelection, 'pageNumber')
 
-  }
 
 }
