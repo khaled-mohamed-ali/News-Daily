@@ -3,15 +3,18 @@
     News
 </h2> -->
 <div class="row g-5 pt-5">
-    <h3 class="fw-bolder mt-5 mb-0 text--black w-75 text-start" routerLink="home">
-        <span class="primary--color">Today</span>
-        News
-    </h3>
+    <div class="col-12 mt-5">
+        <h4 class="fw-bolder mt-5 mb-0 text--black  text-center" routerLink="home">
+            <span class="primary--color">Today</span>
+            News
+        </h4>
+    </div>
     <app-mid-size-card class="col-9 mt-5">
         <div class="row d-flex justify-content-between">
             <div class="col-4 pt-4">
                 <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{randomArticle()?.title}}</h5>
-                <app-post-info [userInfo]="{publishedAt:randomArticle()?.publishedAt, author: randomArticle()?.author}"/>
+                <app-post-info
+                    [userInfo]="{publishedAt:randomArticle()?.publishedAt, author: randomArticle()?.author}" />
                 <p class="card-text fs-6 pt-5 text-FiveLinesClamp">{{randomArticle()?.description}}</p>
             </div>
 
@@ -23,10 +26,10 @@
     <app-small-news-card [news]="rightArticle" class="col-3" />
     <div class="col-12">
         <div class="row">
-        @for (item of sub4Articels; track item.source.id) {
-             <app-small-news-card [news]= "item" class="col-3" />
-        }
+            @for (item of sub4Articels; track item.source.id) {
+            <app-small-news-card [news]="item" class="col-3" />
+            }
         </div>
     </div>
-        <ng-content />
+    <ng-content />
 </div>
