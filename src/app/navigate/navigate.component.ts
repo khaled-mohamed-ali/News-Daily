@@ -17,7 +17,7 @@ import { PaginationComponent } from "../pagination/pagination.component";
 
 export class NavigateComponent {
 
-  // @Input({ required: true }) navSelection!: string;
+  @Input({ required: true }) navSelection!: string;
   // @input({ required: true }) pageNumber: number = 1;
   pageNumber = input()
 
@@ -29,7 +29,7 @@ export class NavigateComponent {
 
   ngOnChanges() {
     console.log('changed');
-    console.log(this.pageNumber())
+    console.log(this.navSelection)
 
     // if (changes) {
   

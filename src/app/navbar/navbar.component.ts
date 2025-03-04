@@ -19,10 +19,8 @@ export class NavbarComponent {
 
   
   
-  // changeNave() {
-  //   return this.NewsDataService.getNewsByCatigory(this.navSelection);
-  
-  // }
+ ngOnInit() {
+ }
 
 
 }

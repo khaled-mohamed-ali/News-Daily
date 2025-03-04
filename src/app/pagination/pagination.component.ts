@@ -24,7 +24,7 @@ export class PaginationComponent {
 
 
   ngOnInit() {
-    console.log(this.pageNumber, 'pageNumber')
+    console.log(this.navSelection, 'pageNumber')
 
   }
 
