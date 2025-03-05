@@ -24,17 +24,14 @@ export class NavigateComponent {
   private newsDataService = inject(NewsDataService);
   private route = inject(ActivatedRoute);
   private activatedRoute = inject(ActivatedRoute);
-  categoryNews = signal<AllNewsData | undefined>(undefined);
+  newsByCategory = signal<AllNewsData | undefined>(undefined) ;
 
 
 
-
-  ngOnInit() {
-    this.activatedRoute.data.subscribe({
-      next: (news) => 
-        this.categoryNews.set(news['data'])     
-    })
-
+  ngDoCheck() {
+    this.newsByCategory.set(this.newsDataService.categoryNews())
+    
+    console.log(this.newsByCategory(),'news')
   }
 
 

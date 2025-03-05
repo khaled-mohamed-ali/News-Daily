@@ -1,6 +1,6 @@
 <div class="Container mt-5">
     <div class="d-flex row justify-content-center navigation">
-        @for (news of categoryNews()?.articles; track $index) {
+        @for (news of newsByCategory()?.articles; track $index) {
         <app-mid-size-card class="col-11 mt-5">
             <div class="row d-flex justify-content-between">
                 <div class="col-4 pt-4">

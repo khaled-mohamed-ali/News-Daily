@@ -10,9 +10,9 @@
                 <a class="page-link" href="" routerLinkActive="selected">{{pageNumber + 1}} <span
                         class="visually-hidden"></span></a>
             </li>
-            <li class="page-item"><a class="page-link">{{pageNumber + 2}}</a>1</li>
+            <li class="page-item"><a class="page-link">{{pageNumber + 2}}</a></li>
             <li class="page-item">
-                <a class="page-link" [routerLink]="['/',navSelection]" [queryParams]="{ page: pageNumber }"
+                <a class="page-link" [routerLink]="['/', navSelection, 'page'+pageNumber]"
                     (click)="nextPage()">Next</a>
             </li>
         </ul>
