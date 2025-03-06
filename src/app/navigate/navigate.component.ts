@@ -18,21 +18,22 @@ import { PaginationComponent } from "../pagination/pagination.component";
 export class NavigateComponent {
 
   @Input({ required: true }) navSelection!: string;
-  // @input({ required: true }) pageNumber: number = 1;
-  pageNumber = input()
+  @Input({ required: true }) pageNumber: number = 1;
+  // pageNumber = input()
 
   private newsDataService = inject(NewsDataService);
-  private route = inject(ActivatedRoute);
-  private activatedRoute = inject(ActivatedRoute);
   newsByCategory = signal<AllNewsData | undefined>(undefined) ;
 
 
 
   ngDoCheck() {
     this.newsByCategory.set(this.newsDataService.categoryNews())
+    console.log(this.pageNumber,'pagen')
+    }
+
+    ngOnChanges() {
+    }
     
-    console.log(this.newsByCategory(),'news')
-  }
 
 
 

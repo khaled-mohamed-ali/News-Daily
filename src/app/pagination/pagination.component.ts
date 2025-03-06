@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NewsDataService } from '../news-data.service';
 
@@ -11,20 +11,26 @@ import { NewsDataService } from '../news-data.service';
 })
 export class PaginationComponent {
   NewsDataService = inject(NewsDataService);
-  @Input() pageNumber: number = 1;
+  pagenumber =0 ;
   @Input() navSelection!: string;
 
 
 
   nextPage() {
-    this.pageNumber++;
+    this.pagenumber ++
   }
 
+
+
   prevPage() {
-    if (this.pageNumber >= 2) {
-      this.pageNumber--;
-    }
+    // if (this.pagenumber >= 2) {
+      this.pagenumber --;
+    // }
   }
+
+  ngDoCheck() {
+    console.log(this.pagenumber,'pagen')
+    }
 
 
 

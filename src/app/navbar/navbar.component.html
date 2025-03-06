@@ -7,21 +7,16 @@
         <div class="row collapse navbar-collapse main-Nav" id="navbarSupportedContent" mdbCollapse
             #basicNavbar="mdbCollapse">
             <div class="d-flex col-4 justify-content-between    ">
-                <h2 class="fw-bolder mb-0 text--black w-75 text-start" routerLink="home">
+                <h2 class="fw-bolder mb-0 text--black  text-start" routerLink="home">
                     <span class="primary--color">News</span>
                     Daily
                 </h2>
-                <div class=" ps-5 w-25 text-end">
-                    <i class="bi bi-search fs-4 fw-bolder primary--color"></i>
-                </div>
+
             </div>
             <ul class="col-8 navbar-nav  mb-2 mb-lg-0 fw-bold justify-content-end">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" routerLink="home" routerLinkActive="selected">GENERAL NEWS</a>
-                </li> -->
+            
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/business']"
-                        routerLinkActive="selected">BUSSINESS</a>
+                    <a class="nav-link" [routerLink]="['/business']" routerLinkActive="selected">BUSSINESS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/sports']" routerLinkActive="selected">SPORT</a>
@@ -35,7 +30,11 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/entertainment']" routerLinkActive="selected">ENTERTAINMENT</a>
                 </li>
-
+                <li>
+                    <div class=" ps-5 w-50 text-end">
+                        <i class="bi bi-search fs-4 fw-bolder primary--color"></i>
+                    </div>
+                </li>
             </ul>
 
         </div>

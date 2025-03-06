@@ -2,17 +2,17 @@
     <div class="col-4">
         <ul class="pagination d-flex justify-content-around">
             <li class="page-item ">
-                <a class="page-link" [routerLink]="['/',navSelection]" [queryParams]="{ page: pageNumber }"
+                <a class="page-link"    [routerLink]="pagenumber >= 2 ? ['/', navSelection, pagenumber] : ['../', navSelection]"
                     (click)="prevPage()">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" routerLinkActive="selected">{{pageNumber}}</a></li>
+            <li class="page-item"><a class="page-link" routerLinkActive="selected">{{pagenumber}}</a></li>
             <li class="page-item active" aria-current="page">
-                <a class="page-link" href="" routerLinkActive="selected">{{pageNumber + 1}} <span
+                <a class="page-link" href="" routerLinkActive="selected">{{pagenumber + 1}} <span
                         class="visually-hidden"></span></a>
             </li>
-            <li class="page-item"><a class="page-link">{{pageNumber + 2}}</a></li>
+            <li class="page-item"><a class="page-link">{{pagenumber + 2}}</a></li>
             <li class="page-item">
-                <a class="page-link" [routerLink]="['/', navSelection,pageNumber]"
+                <a class="page-link" [routerLink]="['/', navSelection,pagenumber]"
                     (click)="nextPage()">Next</a>
             </li>
         </ul>
