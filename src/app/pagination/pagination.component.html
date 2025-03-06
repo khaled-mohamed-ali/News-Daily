@@ -12,7 +12,7 @@
             </li>
             <li class="page-item"><a class="page-link">{{pageNumber + 2}}</a></li>
             <li class="page-item">
-                <a class="page-link" [routerLink]="['/', navSelection, 'page'+pageNumber]"
+                <a class="page-link" [routerLink]="['/', navSelection,pageNumber]"
                     (click)="nextPage()">Next</a>
             </li>
         </ul>
