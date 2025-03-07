@@ -17,9 +17,7 @@ export class PaginationComponent {
   totalResults = this.NewsDataService.categoryNews()?.['totalResults'];
 
 
-ngOnInit() {
-  console.log(this.totalResults)
-}
+
 
   nextPage() {
     this.pagenumber.update(prev => prev + 1);
@@ -32,23 +30,21 @@ ngOnInit() {
   prevPage() {
     this.pagenumber.update(prev => prev- 1);
     this.NewsDataService.getNewsByCatigory(this.navSelection,this.pagenumber());
-    this.router.navigate(this.pagenumber() >= 1 ? ['/', this.navSelection, this.pagenumber() ] : ['../', this.navSelection]);
+    this.router.navigate( ['/', this.navSelection, this.pagenumber() ]);
 
   }
 
   numberedPage(pageN: number) {
     this.pagenumber.set(pageN);
     this.NewsDataService.getNewsByCatigory(this.navSelection, this.pagenumber());
-    this.router.navigate(this.pagenumber() >= 1 ? ['/', this.navSelection, this.pagenumber()] : ['../', this.navSelection]);
+    this.router.navigate(['/', this.navSelection, this.pagenumber()]);
   }
 
 ngOnChanges(changes: SimpleChange) {
   if(changes) {
-    this.pagenumber.set(0)
+    this.pagenumber.set(1)
   }
 }
-
-
 
 
 }

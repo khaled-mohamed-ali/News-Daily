@@ -1,15 +1,18 @@
 <nav aria-label="..." class="row justify-content-center">
     <div class="col-4">
         <ul class="pagination d-flex justify-content-around">
+            <li class="page-item fw-bolder">
+                <a class="page-link" (click)="pagenumber() != 1 && numberedPage(1)"><<</a>
+            </li>
             <li class="page-item ">
                 <a class="page-link" (click)="pagenumber() >= 1 && prevPage()">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" routerLinkActive="selected" (click)="numberedPage(pagenumber()+1)">{{pagenumber()+1}}</a></li>
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="" routerLinkActive="selected" (click)="numberedPage(pagenumber()+2)">{{pagenumber() + 2}} <span
+            <li class="page-item"><a class="page-link" routerLinkActive="selected" (click)="numberedPage(pagenumber())">{{pagenumber()}}</a></li>
+            <li class="page-item " aria-current="page">
+                <a class="page-link" href="" routerLinkActive="selected" (click)="numberedPage(pagenumber()+1)">{{pagenumber() +1  }} <span
                         class="visually-hidden"></span></a>
             </li>
-            <li class="page-item"><a class="page-link" (click)="numberedPage(pagenumber()+3)">{{pagenumber() + 3}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="numberedPage(pagenumber()+2)">{{pagenumber() + 2}}</a></li>
             <li class="page-item">
                 <a class="page-link" (click)="nextPage()">Next</a>
             </li>
