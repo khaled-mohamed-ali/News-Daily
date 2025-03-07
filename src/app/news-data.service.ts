@@ -14,16 +14,20 @@ export class NewsDataService {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  country = "";
-  apiKey: string = "36a3b4929706474ca045250a1a2848d0";
+  apiKey: string = "d20e510c9ed54f6eaf96079fedec6bd2";
   currentPage: string | null = '';
-  // @Input() pageNumber:number = 1; 
-  categoryNews = signal<AllNewsData| undefined>(undefined)
+  categoryNews = signal<AllNewsData| undefined>(undefined);
+  totalResults = this.categoryNews()?.['totalResults'];
+
 
 
 
   // 36a3b4929706474ca045250a1a2848d0 maxbattot
   // d20e510c9ed54f6eaf96079fedec6bd2 dev.khaled
+
+
+  ngOnInit() {
+  }
 
   getNews() {
     const newsUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=" + this.apiKey;

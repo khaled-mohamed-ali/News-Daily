@@ -18,8 +18,7 @@ import { PaginationComponent } from "../pagination/pagination.component";
 export class NavigateComponent {
 
   @Input({ required: true }) navSelection!: string;
-  // @Input({ required: true }) pageNumber: number = 1;
-  // pageNumber = input()
+
 
   private newsDataService = inject(NewsDataService);
   newsByCategory = signal<AllNewsData | undefined>(undefined) ;
@@ -30,16 +29,9 @@ export class NavigateComponent {
     this.newsByCategory.set(this.newsDataService.categoryNews())
     }
 
-    ngOnChanges() {
+    ngOnInit() {
+      console.log(this.newsByCategory())
     }
-    
-
-
-
-
-
-
-
 
 }
 
