@@ -21,9 +21,9 @@ export const routes: Routes = [
             {
                 path: ':pageNumber',
                 component: NavigateComponent,
-                resolve: {
-                    data: newsResolver
-                },
+                // resolve: {
+                //     data: newsResolver
+                // },
             }
         ]
     },

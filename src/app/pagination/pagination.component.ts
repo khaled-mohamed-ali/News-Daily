@@ -1,5 +1,5 @@
-import { Component, inject, Input, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, Input, signal, SimpleChange } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { NewsDataService } from '../news-data.service';
 
 @Component({
@@ -11,26 +11,34 @@ import { NewsDataService } from '../news-data.service';
 })
 export class PaginationComponent {
   NewsDataService = inject(NewsDataService);
-  pagenumber =0 ;
+  router = inject(Router)
+  pagenumber = signal(1);
   @Input() navSelection!: string;
 
 
 
   nextPage() {
-    this.pagenumber ++
+    this.pagenumber.update(prev => prev + 1);
+    this.NewsDataService.getNewsByCatigory(this.navSelection,this.pagenumber());
+    this.router.navigate(['/', this.navSelection,this.pagenumber() ]);
   }
 
 
 
   prevPage() {
     // if (this.pagenumber >= 2) {
-      this.pagenumber --;
+    this.pagenumber.update(prev => prev- 1);
+    this.NewsDataService.getNewsByCatigory(this.navSelection,this.pagenumber());
+    this.router.navigate(this.pagenumber() >= 1 ? ['/', this.navSelection, this.pagenumber() ] : ['../', this.navSelection]);
+
     // }
   }
 
-  ngDoCheck() {
-    console.log(this.pagenumber,'pagen')
-    }
+ngOnChanges(changes: SimpleChange) {
+  if(changes) {
+    this.pagenumber.set(0)
+  }
+}
 
 
 

@@ -17,7 +17,7 @@ export class NewsDataService {
   country = "";
   apiKey: string = "36a3b4929706474ca045250a1a2848d0";
   currentPage: string | null = '';
-  @Input() pageNumber:number = 1; 
+  // @Input() pageNumber:number = 1; 
   categoryNews = signal<AllNewsData| undefined>(undefined)
 
 
@@ -57,7 +57,6 @@ export class NewsDataService {
     this.currentPage = params.get('page')
     const data = this.httpClient.get<AllNewsData>(ByCatigory, { params });
 
-    console.log('wo')
 
     return (
 
