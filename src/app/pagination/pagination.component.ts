@@ -14,6 +14,7 @@ export class PaginationComponent {
   router = inject(Router)
   pagenumber = signal(1);
   @Input() navSelection!: string;
+  @Input() pageNumber: number = 1;
   totalResults = this.NewsDataService.categoryNews()?.['totalResults'];
 
 
@@ -37,6 +38,7 @@ export class PaginationComponent {
   numberedPage(pageN: number) {
     this.pagenumber.set(pageN);
     this.NewsDataService.getNewsByCatigory(this.navSelection, this.pagenumber());
+    console.log(this.pageNumber)
     this.router.navigate(['/', this.navSelection, this.pagenumber()]);
   }
 
