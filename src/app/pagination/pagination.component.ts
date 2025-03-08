@@ -30,7 +30,7 @@ export class PaginationComponent {
   prevPage() {
     this.pagenumber.update(prev => prev- 1);
     this.NewsDataService.getNewsByCatigory(this.navSelection,this.pagenumber());
-    this.router.navigate( ['/', this.navSelection, this.pagenumber() ]);
+    this.router.navigate( ['/', this.navSelection, this.pagenumber()]);
 
   }
 
