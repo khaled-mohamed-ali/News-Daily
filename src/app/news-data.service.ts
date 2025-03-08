@@ -14,12 +14,11 @@ export class NewsDataService {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  apiKey: string = "d20e510c9ed54f6eaf96079fedec6bd2";
+  apiKey: string = "36a3b4929706474ca045250a1a2848d0";
   currentPage: string | null = '';
   categoryNews = signal<AllNewsData| undefined>(undefined);
-  totalResults = this.categoryNews()?.['totalResults'];
 
-
+  
 
 
   // 36a3b4929706474ca045250a1a2848d0 maxbattot
@@ -61,12 +60,12 @@ export class NewsDataService {
     this.currentPage = params.get('page')
     const data = this.httpClient.get<AllNewsData>(ByCatigory, { params });
 
-
     return (
 
       data.subscribe({
         next: (news) => this.categoryNews.set(news),
       })
+
     )
   }
   

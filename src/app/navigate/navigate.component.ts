@@ -18,8 +18,6 @@ import { PaginationComponent } from "../pagination/pagination.component";
 export class NavigateComponent {
 
   @Input({ required: true }) navSelection!: string;
-
-
   private newsDataService = inject(NewsDataService);
   newsByCategory = signal<AllNewsData | undefined>(undefined) ;
 
@@ -30,7 +28,6 @@ export class NavigateComponent {
     }
 
     ngOnInit() {
-      console.log(this.newsByCategory())
     }
 
 }

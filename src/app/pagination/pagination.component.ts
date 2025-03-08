@@ -1,4 +1,4 @@
-import { Component, inject, Input, signal, SimpleChange } from '@angular/core';
+import { Component, computed, effect, inject, Input, signal, SimpleChange } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NewsDataService } from '../news-data.service';
 
@@ -14,16 +14,23 @@ export class PaginationComponent {
   router = inject(Router)
   pagenumber = signal(1);
   @Input() navSelection!: string;
-  @Input() pageNumber: number = 1;
-  totalResults = this.NewsDataService.categoryNews()?.['totalResults'];
+  pagesNumber = computed(() => (Math.floor(this.NewsDataService.categoryNews()?.['totalResults'] / 20)))
 
+  constructor() {
+    effect(() => {
+      console.log(this.pagesNumber(),'in effec')
+    });
+  }
 
+  get pageNumbers() {
+    return Array.from({ length: this.pagesNumber()}, (i:number) => i++);
+  }
 
 
   nextPage() {
     this.pagenumber.update(prev => prev + 1);
     this.NewsDataService.getNewsByCatigory(this.navSelection,this.pagenumber());
-    this.router.navigate(['/', this.navSelection,this.pagenumber() ]);
+    this.router.navigate(['/', this.navSelection,this.pagenumber()]);
   }
 
 
@@ -38,8 +45,11 @@ export class PaginationComponent {
   numberedPage(pageN: number) {
     this.pagenumber.set(pageN);
     this.NewsDataService.getNewsByCatigory(this.navSelection, this.pagenumber());
-    console.log(this.pageNumber)
     this.router.navigate(['/', this.navSelection, this.pagenumber()]);
+  }
+
+  ngOnInit() {
+    console.log(this.pageNumbers, 'in ng')
   }
 
 ngOnChanges(changes: SimpleChange) {
