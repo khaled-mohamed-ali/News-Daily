@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { computed, inject, Injectable, Input, signal } from '@angular/core';
 import { AllNewsData } from './interface/news-data';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ export class NewsDataService {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  apiKey: string = "36a3b4929706474ca045250a1a2848d0";
+  router = inject(Router)
+  apiKey: string = "d20e510c9ed54f6eaf96079fedec6bd2";
   currentPage: string | null = '';
   categoryNews = signal<AllNewsData| undefined>(undefined);
 
@@ -27,6 +29,7 @@ export class NewsDataService {
 
   ngOnInit() {
   }
+
 
   getNews() {
     const newsUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=" + this.apiKey;
@@ -67,6 +70,11 @@ export class NewsDataService {
       })
 
     )
+  }
+
+  getNewsArticle(news: any) {
+    console.log(news);
+    this.router.navigateByUrl('newsaritcle', news)
   }
   
 

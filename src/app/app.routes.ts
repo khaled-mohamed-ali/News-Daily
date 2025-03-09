@@ -5,11 +5,18 @@ import {
     newsResolver
 } from './navigate/navigate.component';
 import { AllNewsComponent } from './all-news/all-news/all-news.component';
+import { NewsArticleComponent } from './news-article/news-article.component';
 
 
 export const routes: Routes = [
     { path: 'home', component: AllNewsComponent },
-    
+    {
+        path: 'newsaritcle',
+        component: NewsArticleComponent
+        // resolve: {
+        //     data: newsResolver
+        // }
+    },
     
     {
         path: ':navSelection',
@@ -27,6 +34,5 @@ export const routes: Routes = [
             }
         ]
     },
-
-
+  
 ];

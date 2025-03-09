@@ -1,7 +1,7 @@
 import { Component, inject, input, Input, Signal, signal, SimpleChanges } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
 import { AllNewsData } from '../interface/news-data';
-import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { MidSizeCardComponent } from "../all-news/mid-size-card-img/mid-size-card.component";
 import { PostInfoComponent } from "../all-news/post-info/post-info.component";
 import { PaginationComponent } from "../pagination/pagination.component";
@@ -19,23 +19,26 @@ export class NavigateComponent {
 
   @Input({ required: true }) navSelection!: string;
   private newsDataService = inject(NewsDataService);
-  newsByCategory = signal<AllNewsData | undefined>(undefined) ;
-
-
+  private router = inject(Router);
+  newsByCategory = signal<AllNewsData | undefined>(undefined);
+  
+  getNewsArticle(news: any) {
+    return this.router.navigateByUrl('newsaritcle', { state: { news: news }});
+  }
 
   ngDoCheck() {
     this.newsByCategory.set(this.newsDataService.categoryNews())
-    }
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }
 
 
 
 
-export const newsResolver = (  route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) => {
+export const newsResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const newsDataService = inject(NewsDataService);
   const activatedRoute = inject(ActivatedRoute)
   const category = activatedRoute.snapshot.children[0]?.params['navSelection'];
