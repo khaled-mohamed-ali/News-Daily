@@ -1,17 +1,18 @@
 <div class="Container">
-    <div class="row">
-        <app-mid-size-card class="col-12 mt-5">
-            newsArticle
-            <!-- <div class="row d-flex justify-content-between">
-                <div class="col-4 pt-4">
-                    <h5 class="card-title text--black fw-bolder">{{news?.title}}</h5>
-                    <app-post-info [userInfo]="{publishedAt:news?.publishedAt, author: news?.author}" />
-                    <p class="card-text fs-5 pt-5 ">{{news?.description}}</p>
+    <div class="row mt-5">
+        <app-mid-size-card class="col-12 mt-5 py-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10">
+                    <h5 class="card-title text--black fw-bolder py-3">{{article()?.title}}</h5>
+                    <img [src]="article()?.urlToImage" class="w-100 rounded-3 navImg" alt="Fissure in Sandstone" />
                 </div>
-                <div class="col-8"> -->
-                    <!-- <img [src]="news?.urlToImage" class="w-100 rounded-3 navImg" alt="Fissure in Sandstone" /> -->
-                <!-- </div>
-            </div> -->
+                <div class="col-10 pt-4">
+                    <div class="col-6">
+                        <app-post-info [userInfo]="{publishedAt:article()?.publishedAt, author: article()?.author}" />
+                    </div>
+                    <p class="card-text fs-5 pt-5 ">{{article()?.description}}</p>
+                </div>
+            </div>
         </app-mid-size-card>
     </div>
 </div>

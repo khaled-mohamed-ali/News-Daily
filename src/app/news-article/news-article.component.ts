@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { PostInfoComponent } from "../all-news/post-info/post-info.component";
 import { MidSizeCardComponent } from '../all-news/mid-size-card-img/mid-size-card.component';
 import { NewsDataService } from '../news-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { News } from '../interface/news-data';
 
 @Component({
   selector: 'app-news-article',
@@ -13,14 +14,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewsArticleComponent {
   private newsDataService = inject(NewsDataService);
-  private router = inject(Router)
+  private route = inject(Router)
+  article = signal<News | undefined>(undefined)
 
   // getNewsArticle() {
     // const newsArticle = this.newsDataService.getNewsArticle(news)
      
   // }
   ngOnInit() {
-    console.log(this.router.getCurrentNavigation()?.extras.state?.['news'],'this.router.getCurrentNavigation()')
+    this.article.set(history.state?.article);
+    console.log(this.article()?.author,'art')
   }
 
 }
