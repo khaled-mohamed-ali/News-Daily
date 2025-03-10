@@ -23,7 +23,7 @@ export class NavigateComponent {
   newsByCategory = signal<AllNewsData | undefined>(undefined);
   
   getNewsArticle(news: any) {
-    return this.router.navigateByUrl('newsaritcle', { state: { news: news }});
+    return this.router.navigateByUrl('/newsaritcle', { state: { article: news }});
   }
 
   ngDoCheck() {
