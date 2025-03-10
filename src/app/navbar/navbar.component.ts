@@ -1,5 +1,5 @@
 import { Component, inject, Input, signal, ViewEncapsulation } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { NewsDataService } from '../news-data.service';
 
@@ -14,10 +14,14 @@ import { NewsDataService } from '../news-data.service';
 })
 export class NavbarComponent {
   private NewsDataService = inject(NewsDataService);
+  private router = inject(Router)
   @Input() navSelection!: string;
   @Input() pageNumber: number = 1;
 
-  
+  getNewsByCatigory(category: any, pageNumber: any){
+    this.NewsDataService.getNewsByCatigory(category, pageNumber);
+    this.router.navigate([category,pageNumber])
+  }
   
  ngOnInit() {
  }

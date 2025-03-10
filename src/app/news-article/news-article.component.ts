@@ -23,7 +23,6 @@ export class NewsArticleComponent {
   // }
   ngOnInit() {
     this.article.set(history.state?.article);
-    console.log(this.article()?.author,'art')
   }
 
 }

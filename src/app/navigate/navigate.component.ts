@@ -36,12 +36,3 @@ export class NavigateComponent {
 }
 
 
-
-
-export const newsResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-  const newsDataService = inject(NewsDataService);
-  const activatedRoute = inject(ActivatedRoute)
-  const category = activatedRoute.snapshot.children[0]?.params['navSelection'];
-  const pageNumber: any = route.paramMap.get('pageNumber');
-  return newsDataService.getNewsByCatigory(category, pageNumber)
-}
