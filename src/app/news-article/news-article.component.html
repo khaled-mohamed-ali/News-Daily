@@ -8,7 +8,19 @@
                 </div>
                 <div class="col-10 pt-4">
                     <div class="col-6">
-                        <app-post-info [userInfo]="{publishedAt:article()?.publishedAt, author: article()?.author}" />
+                        <app-post-info>
+                            <div class="col-7 align-items-center">
+                                <i class="bi bi-clock "></i>
+                                <span class="p-1 smallFont text-truncate">{{article()?.publishedAt}}</span>
+                            </div>
+                            <div class="col-5  d-flex align-items-center p-0">
+                                <i class="bi bi-person fst-normal fw-bolder smallFont w-25"> by</i>
+                                <span class=" fw-bolder  smallFont text-truncate d-inline-block w-75">
+                                    {{article()?.author?article()?.author:'Unknownuser'}}
+                                </span>
+                            </div>
+                        </app-post-info>
+
                     </div>
                     <p class="card-text fs-5 pt-5 ">{{article()?.description}}</p>
                 </div>

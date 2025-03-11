@@ -15,8 +15,18 @@
                         <h3 class="fw-bolder w-100"><span class="primary--color ">STORY:</span>
                             {{rightSideArticle?.source?.name}}</h3>
                         <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{rightSideArticle?.title}}</h5>
-                        <app-post-info
-                            [userInfo]="{publishedAt:rightSideArticle?.publishedAt, author: rightSideArticle?.author}" />
+                        <app-post-info>
+                            <div class="col-7 align-items-center">
+                                <i class="bi bi-clock "></i>
+                                <span class="p-1 smallFont text-truncate">{{rightSideArticle?.publishedAt}}</span>
+                            </div>
+                            <div class="col-5  d-flex align-items-center p-0">
+                                <i class="bi bi-person fst-normal fw-bolder smallFont w-25"> by</i>
+                                <span class=" fw-bolder  smallFont text-truncate d-inline-block w-75">
+                                    {{rightSideArticle?.author?rightSideArticle?.author:'Unknownuser'}}
+                                </span>
+                            </div>
+                        </app-post-info>
                         <p class="card-text fs-6 pt-5 text-FiveLinesClamp">{{rightSideArticle?.description}}</p>
                     </div>
                     <div class="col-6">
