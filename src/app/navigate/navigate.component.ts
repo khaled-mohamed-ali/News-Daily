@@ -1,6 +1,6 @@
 import { Component, inject, input, Input, Signal, signal, SimpleChanges } from '@angular/core';
 import { NewsDataService } from '../news-data.service';
-import { AllNewsData } from '../interface/news-data';
+import { AllNewsData, News } from '../interface/news-data';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { MidSizeCardComponent } from "../all-news/mid-size-card-img/mid-size-card.component";
 import { PostInfoComponent } from "../all-news/post-info/post-info.component";
@@ -22,7 +22,7 @@ export class NavigateComponent {
   private router = inject(Router);
   newsByCategory = signal<AllNewsData | undefined>(undefined);
   
-  getNewsArticle(news: any) {
+  getNewsArticle(news: News) {
     return this.router.navigateByUrl('/newsaritcle', { state: { article: news }});
   }
 

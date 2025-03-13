@@ -10,13 +10,9 @@
         </h4>
     </div>
     <app-mid-size-card class="col-9 mt-5">
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-between" (click)="getNewsArticle(randomArticle())">
             <div class="col-4 pt-4">
                 <h5 class="card-title text--black fw-bolder text-twoLineClamp">{{randomArticle()?.title}}</h5>
-
-                <app-post-info
-                    [userInfo]="{publishedAt:randomArticle()?.publishedAt, author: randomArticle()?.author}" />
-
                 <app-post-info>
                     <div class="col-7 align-items-center">
                         <i class="bi bi-clock "></i>
@@ -29,12 +25,8 @@
                         </span>
                     </div>
                 </app-post-info>
-
-
-
                 <p class="card-text fs-6 pt-5 text-FiveLinesClamp">{{randomArticle()?.description}}</p>
             </div>
-
             <div class="col-8">
                 <img [src]="randomArticle()?.urlToImage" class="w-100 rounded-3" alt="Fissure in Sandstone" />
             </div>

@@ -8,12 +8,11 @@
     </div>
     <div class="col-6">
         <app-mid-size-card>
-            <div class="row d-flex justify-content-start">
-                <div class="col-12">
+            <div class="row d-flex justify-content-start" >
+                <div class="col-12" (click)="getNewsArticle(generalNews()?.[2])">
                     <img [src]="generalNews()?.[2]?.urlToImage" class="w-100 rounded-3" alt="Fissure in Sandstone" />
                 </div>
                 <div class="col-7 pt-3">
-
                         <app-post-info>
                             <div class="col-7 align-items-center">
                                 <i class="bi bi-clock "></i>

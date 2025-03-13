@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="col-12 p-5 position-relative d-inline-block imgContainer">
+<div class="row justify-content-center">
+    <div class="col-8  position-relative d-inline-block imgContainer" (click)="getNewsArticle(fullSizeCardData())">
         <img class="w-100 h-100 rounded-3" [src]="fullSizeCardData()?.urlToImage" alt="">
         <p class="inner-name button--primary d-flex">{{fullSizeCardData()?.source?.name}}</p>
         <p class="fs-6 content px-4 pt-2">{{fullSizeCardData()?.description}}</p>

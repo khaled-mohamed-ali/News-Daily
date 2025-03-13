@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { News } from '../../interface/news-data';
 
 
 @Component({
@@ -11,5 +12,7 @@ import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@an
   styleUrl: './mid-size-card.component.css'
 })
 export class MidSizeCardComponent {
+ 
+  
 
 }
